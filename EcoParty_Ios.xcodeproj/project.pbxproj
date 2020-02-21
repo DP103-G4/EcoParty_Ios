@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */; };
+		701D94EE23FFD62E00D7AB04 /* InformTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */; };
+		701D94F023FFD63B00D7AB04 /* InformTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */; };
 		702B3FCD23FB790C0071006B /* PieceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B3FCC23FB790C0071006B /* PieceCollectionViewController.swift */; };
 		702B3FCF23FB79200071006B /* PieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B3FCE23FB79200071006B /* PieceCollectionViewCell.swift */; };
 		70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51223FA97CB00374B38 /* AppDelegate.swift */; };
@@ -15,10 +18,12 @@
 		70A7C51C23FA97CD00374B38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70A7C51B23FA97CD00374B38 /* Assets.xcassets */; };
 		70A7C51F23FA97CD00374B38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A7C51D23FA97CD00374B38 /* LaunchScreen.storyboard */; };
 		70A7C53023FAB2DE00374B38 /* PartyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C52F23FAB2DE00374B38 /* PartyCollectionViewCell.swift */; };
-		70A7C53223FAB8A600374B38 /* PartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C53123FAB8A600374B38 /* PartyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewController.swift; sourceTree = "<group>"; };
+		701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformTableViewController.swift; sourceTree = "<group>"; };
+		701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformTableViewCell.swift; sourceTree = "<group>"; };
 		702B3FCC23FB790C0071006B /* PieceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceCollectionViewController.swift; sourceTree = "<group>"; };
 		702B3FCE23FB79200071006B /* PieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceCollectionViewCell.swift; sourceTree = "<group>"; };
 		70A7C50F23FA97CB00374B38 /* EcoParty_Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoParty_Ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,7 +34,6 @@
 		70A7C51E23FA97CD00374B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70A7C52023FA97CD00374B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70A7C52F23FAB2DE00374B38 /* PartyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewCell.swift; sourceTree = "<group>"; };
-		70A7C53123FAB8A600374B38 /* PartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701D94E923FFD00000D7AB04 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		701D94EC23FFD60D00D7AB04 /* Inform */ = {
+			isa = PBXGroup;
+			children = (
+				701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */,
+				701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */,
+			);
+			path = Inform;
+			sourceTree = "<group>";
+		};
 		702B3FCB23FB78E00071006B /* PieceList */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +91,8 @@
 		70A7C51123FA97CB00374B38 /* EcoParty_Ios */ = {
 			isa = PBXGroup;
 			children = (
+				701D94EC23FFD60D00D7AB04 /* Inform */,
+				701D94E923FFD00000D7AB04 /* Common */,
 				702B3FCB23FB78E00071006B /* PieceList */,
 				70A7C52623FAAB0200374B38 /* PartyList */,
 				70A7C51223FA97CB00374B38 /* AppDelegate.swift */,
@@ -86,8 +108,8 @@
 		70A7C52623FAAB0200374B38 /* PartyList */ = {
 			isa = PBXGroup;
 			children = (
-				70A7C53123FAB8A600374B38 /* PartyViewController.swift */,
 				70A7C52F23FAB2DE00374B38 /* PartyCollectionViewCell.swift */,
+				701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */,
 			);
 			path = PartyList;
 			sourceTree = "<group>";
@@ -164,11 +186,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */,
+				701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */,
 				70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */,
+				701D94EE23FFD62E00D7AB04 /* InformTableViewController.swift in Sources */,
 				70A7C53023FAB2DE00374B38 /* PartyCollectionViewCell.swift in Sources */,
-				70A7C53223FAB8A600374B38 /* PartyViewController.swift in Sources */,
 				702B3FCD23FB790C0071006B /* PieceCollectionViewController.swift in Sources */,
 				702B3FCF23FB79200071006B /* PieceCollectionViewCell.swift in Sources */,
+				701D94F023FFD63B00D7AB04 /* InformTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
