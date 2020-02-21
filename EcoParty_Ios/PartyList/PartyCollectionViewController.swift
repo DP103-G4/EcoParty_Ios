@@ -28,6 +28,7 @@ class PartyCollectionViewController: UICollectionViewController {
         
         collectionView.addSubview(refresh)
         refresh.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        print("123")
     }
 
     override func viewWillAppear(_ animated: Bool) {
