@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jAj-rT-FN8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Inform Table View Controller-->
+        <scene sceneID="F9i-kc-bWD">
+            <objects>
+                <tableViewController id="9G9-eb-BZ6" customClass="InformTableViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Y1-W2-b8C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InformTableViewCell" rowHeight="74" id="QfE-iz-yFZ" customClass="InformTableViewCell" customModule="EcoParty_Ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="74"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QfE-iz-yFZ" id="DsN-ut-3Eo">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-1s-owz">
+                                            <rect key="frame" x="36" y="8" width="342" height="58"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-EA-jv6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" name="深灰"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFP-UP-ZPa">
+                                                    <rect key="frame" x="0.0" y="20.5" width="342" height="37.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="深灰"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Jvo-1s-owz" secondAttribute="bottom" constant="8" id="CgC-pH-fEL"/>
+                                        <constraint firstAttribute="trailing" secondItem="Jvo-1s-owz" secondAttribute="trailing" constant="36" id="VEN-P5-FAp"/>
+                                        <constraint firstItem="Jvo-1s-owz" firstAttribute="top" secondItem="DsN-ut-3Eo" secondAttribute="top" constant="8" id="Yeh-xT-osE"/>
+                                        <constraint firstItem="Jvo-1s-owz" firstAttribute="leading" secondItem="DsN-ut-3Eo" secondAttribute="leading" constant="36" id="t0Y-5B-qyI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.99215686274509807" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="informContentLabel" destination="eFP-UP-ZPa" id="HJz-H7-lTD"/>
+                                    <outlet property="informTitleLabel" destination="aeJ-EA-jv6" id="foU-ZC-oEB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9G9-eb-BZ6" id="xET-4n-lhC"/>
+                            <outlet property="delegate" destination="9G9-eb-BZ6" id="8K4-4X-Ix3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="OdB-xu-0bP"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MC7-ts-zhP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724.6376811594205" y="-354.24107142857139"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="xMP-tA-rfx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jAj-rT-FN8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="inform" id="bAz-SZ-Kbe"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dsB-yB-HGX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9G9-eb-BZ6" kind="relationship" relationship="rootViewController" id="xxQ-2u-XBZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aq-J3-6zn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814.49275362318849" y="-354.24107142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="inform" width="26" height="33"/>
+        <namedColor name="深灰">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

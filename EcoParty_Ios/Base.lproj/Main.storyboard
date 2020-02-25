@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,14 +55,14 @@
                                             <color key="textColor" name="深灰"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman" translatesAutoresizingMaskIntoConstraints="NO" id="6gD-97-hZc">
-                                            <rect key="frame" x="128" y="108" width="43" height="43"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic0" translatesAutoresizingMaskIntoConstraints="NO" id="6gD-97-hZc">
+                                            <rect key="frame" x="127" y="107" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="43" id="FiS-aM-bYI"/>
-                                                <constraint firstAttribute="width" constant="43" id="fRH-uf-P4r"/>
+                                                <constraint firstAttribute="height" constant="44" id="FiS-aM-bYI"/>
+                                                <constraint firstAttribute="width" constant="44" id="fRH-uf-P4r"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.conerRadius">
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="22"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
@@ -155,62 +154,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQF-9c-Kpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111.594202898551" y="-2327.0089285714284"/>
-        </scene>
-        <!--Piece Collection View Controller-->
-        <scene sceneID="2Oz-2k-DVY">
-            <objects>
-                <collectionViewController id="m8a-EG-M78" customClass="PieceCollectionViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="dfK-by-N66">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <color key="tintColor" name="背景淺灰"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="CEk-Ta-Ynq">
-                            <size key="itemSize" width="204" height="204"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PieceCollectionViewCell" id="wPr-gs-1np" customClass="PieceCollectionViewCell" customModule="EcoParty_Ios" customModuleProvider="target">
-                                <rect key="frame" x="85.5" y="0.0" width="204" height="204"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rFO-XZ-yrD">
-                                    <rect key="frame" x="0.0" y="0.0" width="204" height="204"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic0" translatesAutoresizingMaskIntoConstraints="NO" id="Q9g-PH-5Lo">
-                                            <rect key="frame" x="0.0" y="0.0" width="204" height="204"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="204" id="7w3-Jw-DOh"/>
-                                                <constraint firstAttribute="height" constant="204" id="L0V-D5-PJs"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Q9g-PH-5Lo" secondAttribute="trailing" id="EoC-1J-sqW"/>
-                                        <constraint firstItem="Q9g-PH-5Lo" firstAttribute="top" secondItem="rFO-XZ-yrD" secondAttribute="top" id="e5A-eg-seF"/>
-                                        <constraint firstItem="Q9g-PH-5Lo" firstAttribute="leading" secondItem="rFO-XZ-yrD" secondAttribute="leading" id="n1y-iS-S25"/>
-                                        <constraint firstAttribute="bottom" secondItem="Q9g-PH-5Lo" secondAttribute="bottom" id="rUo-S5-oZ4"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="204" height="204"/>
-                                <connections>
-                                    <outlet property="pieceImage" destination="Q9g-PH-5Lo" id="IRs-Ma-v5n"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="m8a-EG-M78" id="aKw-6y-iDP"/>
-                            <outlet property="delegate" destination="m8a-EG-M78" id="5Bg-km-KWA"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="Je0-tw-Wo1"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YH0-pl-aMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2111.594202898551" y="-1598.4375"/>
+            <point key="canvasLocation" x="2111.1999999999998" y="-2327.5862068965521"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QeT-bn-8dB">
@@ -224,8 +168,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="8nD-KE-ck5" kind="relationship" relationship="viewControllers" id="yb4-18-P2k"/>
-                        <segue destination="3AB-Is-Met" kind="relationship" relationship="viewControllers" id="g1G-Ca-wdU"/>
-                        <segue destination="aYx-rr-r1M" kind="relationship" relationship="viewControllers" id="9e0-UX-xAP"/>
+                        <segue destination="jbu-oy-FP4" kind="relationship" relationship="viewControllers" id="Wwz-aY-dNQ"/>
+                        <segue destination="BVz-g5-ye3" kind="relationship" relationship="viewControllers" id="yU2-LF-CBM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sq7-8D-yuA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -251,126 +195,32 @@
             </objects>
             <point key="canvasLocation" x="1201.449275362319" y="-2327.0089285714284"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="aXe-AP-tkM">
+        <!--PieceList-->
+        <scene sceneID="lqf-Uj-Ut2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3AB-Is-Met" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="photo" id="b14-gB-IVi"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YhE-UT-0FX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="m8a-EG-M78" kind="relationship" relationship="rootViewController" id="Esw-CZ-LbA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ngg-t7-nWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="PieceList" id="jbu-oy-FP4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Fou-Df-U9I"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zX2-Q2-tmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201" y="-1598"/>
+            <point key="canvasLocation" x="130" y="-1816"/>
         </scene>
-        <!--Inform Table View Controller-->
-        <scene sceneID="B4P-5O-5zc">
+        <!--Inform-->
+        <scene sceneID="Ugg-cT-hGJ">
             <objects>
-                <tableViewController id="Epv-L4-tDx" customClass="InformTableViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="V6s-Ec-194">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InformTableViewCell" rowHeight="65" id="tq6-3S-B5z" customClass="InformTableViewCell" customModule="EcoParty_Ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tq6-3S-B5z" id="1xB-iC-BiZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="65"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sc9-CR-Cvl">
-                                            <rect key="frame" x="36" y="8" width="69.5" height="49"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動通知" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFS-JQ-aQs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="69.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" name="深灰"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-eQ-EcP">
-                                                    <rect key="frame" x="0.0" y="20.5" width="69.5" height="28.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="深灰"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="sc9-CR-Cvl" secondAttribute="bottom" constant="8" id="NcB-HC-Bt3"/>
-                                        <constraint firstItem="sc9-CR-Cvl" firstAttribute="top" secondItem="1xB-iC-BiZ" secondAttribute="top" constant="8" id="Qhv-wv-JNE"/>
-                                        <constraint firstItem="sc9-CR-Cvl" firstAttribute="leading" secondItem="1xB-iC-BiZ" secondAttribute="leading" constant="36" id="trM-Yg-NBv"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.99215686274509807" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="informContentLabel" destination="Mls-eQ-EcP" id="gPJ-Wh-55V"/>
-                                    <outlet property="informTitleLabel" destination="UFS-JQ-aQs" id="R7b-80-AF2"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Epv-L4-tDx" id="eUr-eq-ize"/>
-                            <outlet property="delegate" destination="Epv-L4-tDx" id="TTL-2m-RYd"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="PYM-rL-IcK"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jml-Sa-byB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Inform" id="BVz-g5-ye3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="XXI-sc-ZTe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6C-Lm-mbb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="-898.2008995502249"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="3Tl-qn-DbM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYx-rr-r1M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="inform" id="txD-6K-JdX"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VAN-Di-Z7d">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Epv-L4-tDx" kind="relationship" relationship="rootViewController" id="QtE-Wq-suZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7JX-y0-JAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1201" y="-898"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ZAU-J3-Z4U">
-            <objects>
-                <viewController id="crA-OD-sDX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iy2-dN-sRP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="5lf-sD-Eta"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p7P-rv-O1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1210" y="-149"/>
+            <point key="canvasLocation" x="521" y="-1823"/>
         </scene>
     </scenes>
     <resources>
-        <image name="inform" width="26" height="33"/>
         <image name="item0" width="1024" height="683"/>
         <image name="party" width="31" height="37"/>
-        <image name="photo" width="34" height="27"/>
         <image name="pic0" width="560" height="350"/>
         <image name="pic1" width="1148" height="580"/>
-        <image name="woman" width="244" height="230"/>
         <namedColor name="深灰">
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

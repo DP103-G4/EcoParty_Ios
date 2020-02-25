@@ -48,7 +48,7 @@ class PieceCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PieceCollectionViewCell
-        cell.pieceImage.image = UIImage(named: "pic0")
+        cell.pieceImage.image = UIImage(named: "julia0")
         
         // Configure the cell
     

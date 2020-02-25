@@ -12,7 +12,6 @@ class InformTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.tableFooterView = UIView(frame: .zero)
     }
 
@@ -38,7 +37,8 @@ class InformTableViewController: UITableViewController {
         return cell
     }
     
-
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

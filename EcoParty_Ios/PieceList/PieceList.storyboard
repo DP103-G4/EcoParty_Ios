@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Q9-Te-f9H">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Piece Collection View Controller-->
+        <scene sceneID="v50-bT-yfe">
+            <objects>
+                <collectionViewController id="h8I-8j-jbD" customClass="PieceCollectionViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DCD-1p-gra">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="YQk-pl-fRs">
+                            <size key="itemSize" width="197" height="215"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PieceCollectionViewCell" id="jPa-yk-b6u" customClass="PieceCollectionViewCell" customModule="EcoParty_Ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="204" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dfk-mu-om8">
+                                    <rect key="frame" x="0.0" y="0.0" width="204" height="204"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="julia0" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-aq-S6t">
+                                            <rect key="frame" x="0.0" y="0.0" width="204" height="204"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="204" id="LTu-4B-ng5"/>
+                                                <constraint firstAttribute="width" constant="204" id="jk8-iI-uyq"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="e9p-aq-S6t" secondAttribute="trailing" id="9vE-SM-mpC"/>
+                                        <constraint firstAttribute="bottom" secondItem="e9p-aq-S6t" secondAttribute="bottom" id="QjP-ac-CTE"/>
+                                        <constraint firstItem="e9p-aq-S6t" firstAttribute="leading" secondItem="dfk-mu-om8" secondAttribute="leading" id="alp-XT-m0A"/>
+                                        <constraint firstItem="e9p-aq-S6t" firstAttribute="top" secondItem="dfk-mu-om8" secondAttribute="top" id="q1p-XO-EGx"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="204" height="204"/>
+                                <connections>
+                                    <outlet property="pieceImage" destination="e9p-aq-S6t" id="sWy-wE-eUx"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="h8I-8j-jbD" id="Xm7-VF-6he"/>
+                            <outlet property="delegate" destination="h8I-8j-jbD" id="eU6-Nm-QWK"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="r04-8b-rhC"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XMz-9w-3lm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818.840579710145" y="-704.46428571428567"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="p18-yh-zTa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Q9-Te-f9H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="photo" id="NGf-EI-QEh"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lxd-8M-Fux">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h8I-8j-jbD" kind="relationship" relationship="rootViewController" id="WtD-of-Z2w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FU2-zG-1Al" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908.69565217391312" y="-704.46428571428567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="julia0" width="640" height="640"/>
+        <image name="photo" width="34" height="27"/>
+    </resources>
+</document>
