@@ -12,38 +12,45 @@ private let reuseIdentifier = "PartyCollectionViewCell"
 
 class PartyCollectionViewController: UICollectionViewController {
     
+    var partyLists = [PartyList]()
+    let url_server = URL(string: common_url + "PartyServlet")
+    var requestParam = [String: Any]()
+    var imageArray = [String]()
     var refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        titleView的元件換成searchBar
+        //                titleView的元件換成searchBar
         let searchBar = UISearchBar()
         searchBar.placeholder = "請輸入活動名稱"
         navigationItem.titleView = searchBar
-        
         let width = (collectionView.bounds.width - 5 * 2) / 2
         let layout = collectionViewLayout as? UICollectionViewFlowLayout
         layout?.itemSize = CGSize(width: width, height: width + 55)
         layout?.estimatedItemSize = .zero
         
         collectionView.addSubview(refresh)
-        refresh.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        loadData()
         
-        //        設定tab小圓點
-//                if let tabItems = tabBarController?.tabBar.items {
-//                    let tabItem = tabItems[2]
-//                    tabItem.badgeValue = "1"
-//                }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setToolbarHidden(true, animated: true)
+        showPartyList()
+        
+        
+        //        設定tab小圓點
+        //        if let tabItems = tabBarController?.tabBar.items {
+        //            let tabItem = tabItems[2]
+        //            tabItem.badgeValue = "1"
+        //        }
     }
     
-    
-    @objc func loadData() {
+    func loadData() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            self.refresh.endRefreshing()
+            self.refresh.addTarget(self, action: #selector(self.showPartyList), for: .valueChanged)
+            
+            
         }
     }
     
@@ -67,15 +74,64 @@ class PartyCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 8
+        return partyLists.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PartyCollectionViewCell
-        cell.partyImage.image = UIImage(named: "item0")
-        
-        cell.partyOwnerImage.image = UIImage(named: "julia0")
-        
+        let partyList = partyLists[indexPath.item]
+        requestParam["action"] = "getCoverImg"
+        requestParam["id"] = partyList.id
+        requestParam["imageSize"] = cell.frame.width
+        var partyImg: UIImage?
+        if let url = url_server {
+            executeTask(url, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        partyImg = UIImage(data: data!)
+                    }
+                    if partyImg == nil {
+                        partyImg = UIImage(named: "noImage")
+                    }
+                    DispatchQueue.main.async {
+                        cell.partyImage.image = partyImg
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+        }
+        let userUrl = URL(string: common_url + "UserServlet")
+        requestParam["action"] = "getImage"
+        requestParam["id"] = partyList.ownerId
+        requestParam["imageSize"] = cell.frame.width / 20
+        var ownerImg: UIImage?
+        if let userUrl = userUrl {
+            executeTask(userUrl, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        ownerImg = UIImage(data: data!)
+                    }
+                    if ownerImg == nil {
+                        ownerImg = UIImage(named: "noImage")
+                    }
+                    DispatchQueue.main.async {
+                        cell.partyOwnerImage.image = ownerImg
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+        }
+        let format = DateFormatter()
+        // 設定地區(台灣)
+        format.locale = Locale(identifier: "zh_Hant_TW")
+        // 設定時區(台灣)
+        //        format.timeZone = TimeZone(identifier: "Asia/Taipei")
+        format.dateFormat = "E M月d日"
+        cell.partyNameLabel.text = partyList.name
+        cell.partyAddressLabel.text = partyList.address
+        cell.partyStartLabel.text = format.string(from: partyList.startTime)
         
         return cell
     }
@@ -111,7 +167,35 @@ class PartyCollectionViewController: UICollectionViewController {
      }
      */
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PartyHeaderCollectionReusableView", for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PartyCollectionViewHeader", for: indexPath) 
+        
         return headerView
+    }
+    
+    @objc func showPartyList() {
+        self.refresh.endRefreshing()
+        requestParam["action"] = "getPartyList"
+        requestParam["state"] = 1
+        let decoder = JSONDecoder()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        decoder.dateDecodingStrategy = .formatted(format)
+        if let url = url_server {
+            executeTask(url, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        print("input: \(String(data: data!, encoding: .utf8)!)")
+                        if let result = try? decoder.decode([PartyList].self, from: data!) {
+                            self.partyLists = result
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                            }
+                        }
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+        }
     }
 }

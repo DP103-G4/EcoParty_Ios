@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70137781240673EA0069594E /* NewsBannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70137780240673EA0069594E /* NewsBannerCollectionView.swift */; };
+		701377872406758D0069594E /* NewsBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701377862406758D0069594E /* NewsBannerCollectionViewCell.swift */; };
 		701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */; };
 		701D94EE23FFD62E00D7AB04 /* InformTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */; };
 		701D94F023FFD63B00D7AB04 /* InformTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */; };
@@ -21,9 +23,13 @@
 		70AE38F42403AFD900379852 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE38F32403AFD900379852 /* Common.swift */; };
 		70D3F2E22404BF8900AD412B /* PieceList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D3F2E12404BF8900AD412B /* PieceList.storyboard */; };
 		70D3F2E62404C63700AD412B /* Inform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D3F2E52404C63700AD412B /* Inform.storyboard */; };
+		70D3F2E824051AA000AD412B /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D3F2E724051AA000AD412B /* Party.swift */; };
+		70D3F2EA24053D3A00AD412B /* Inform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D3F2E924053D3A00AD412B /* Inform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70137780240673EA0069594E /* NewsBannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBannerCollectionView.swift; sourceTree = "<group>"; };
+		701377862406758D0069594E /* NewsBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewController.swift; sourceTree = "<group>"; };
 		701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformTableViewController.swift; sourceTree = "<group>"; };
 		701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformTableViewCell.swift; sourceTree = "<group>"; };
@@ -40,6 +46,8 @@
 		70AE38F32403AFD900379852 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		70D3F2E12404BF8900AD412B /* PieceList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PieceList.storyboard; sourceTree = "<group>"; };
 		70D3F2E52404C63700AD412B /* Inform.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Inform.storyboard; sourceTree = "<group>"; };
+		70D3F2E724051AA000AD412B /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
+		70D3F2E924053D3A00AD412B /* Inform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7013773D24065C400069594E /* News */ = {
+			isa = PBXGroup;
+			children = (
+				70137780240673EA0069594E /* NewsBannerCollectionView.swift */,
+				701377862406758D0069594E /* NewsBannerCollectionViewCell.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		701D94E923FFD00000D7AB04 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +84,7 @@
 				701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */,
 				701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */,
 				70D3F2E52404C63700AD412B /* Inform.storyboard */,
+				70D3F2E924053D3A00AD412B /* Inform.swift */,
 			);
 			path = Inform;
 			sourceTree = "<group>";
@@ -100,6 +118,7 @@
 		70A7C51123FA97CB00374B38 /* EcoParty_Ios */ = {
 			isa = PBXGroup;
 			children = (
+				7013773D24065C400069594E /* News */,
 				701D94EC23FFD60D00D7AB04 /* Inform */,
 				701D94E923FFD00000D7AB04 /* Common */,
 				702B3FCB23FB78E00071006B /* PieceList */,
@@ -119,6 +138,7 @@
 			children = (
 				70A7C52F23FAB2DE00374B38 /* PartyCollectionViewCell.swift */,
 				701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */,
+				70D3F2E724051AA000AD412B /* Party.swift */,
 			);
 			path = PartyList;
 			sourceTree = "<group>";
@@ -199,10 +219,14 @@
 				70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */,
 				701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */,
 				70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */,
+				70137781240673EA0069594E /* NewsBannerCollectionView.swift in Sources */,
 				701D94EE23FFD62E00D7AB04 /* InformTableViewController.swift in Sources */,
 				70AE38F42403AFD900379852 /* Common.swift in Sources */,
 				70A7C53023FAB2DE00374B38 /* PartyCollectionViewCell.swift in Sources */,
+				701377872406758D0069594E /* NewsBannerCollectionViewCell.swift in Sources */,
+				70D3F2E824051AA000AD412B /* Party.swift in Sources */,
 				702B3FCD23FB790C0071006B /* PieceCollectionViewController.swift in Sources */,
+				70D3F2EA24053D3A00AD412B /* Inform.swift in Sources */,
 				702B3FCF23FB79200071006B /* PieceCollectionViewCell.swift in Sources */,
 				701D94F023FFD63B00D7AB04 /* InformTableViewCell.swift in Sources */,
 			);

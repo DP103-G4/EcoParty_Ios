@@ -16,21 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="背景淺灰"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="m7b-bl-HPk">
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1" id="m7b-bl-HPk">
                             <size key="itemSize" width="179" height="234"/>
                             <size key="headerReferenceSize" width="50" height="274"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PartyCollectionViewCell" id="nBY-YZ-bHO" customClass="PartyCollectionViewCell" customModule="EcoParty_Ios" customModuleProvider="target">
-                                <rect key="frame" x="4" y="274" width="179" height="234"/>
+                                <rect key="frame" x="5" y="274" width="179" height="234"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8mV-vT-x3b">
                                     <rect key="frame" x="0.0" y="0.0" width="179" height="234"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item0" translatesAutoresizingMaskIntoConstraints="NO" id="5fo-kY-WW4">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="5fo-kY-WW4">
                                             <rect key="frame" x="5" y="5" width="169" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="150" id="4jk-kn-bsd"/>
@@ -55,7 +55,7 @@
                                             <color key="textColor" name="深灰"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic0" translatesAutoresizingMaskIntoConstraints="NO" id="6gD-97-hZc">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman" translatesAutoresizingMaskIntoConstraints="NO" id="6gD-97-hZc">
                                             <rect key="frame" x="127" y="107" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="FiS-aM-bYI"/>
@@ -107,27 +107,49 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PartyHeaderCollectionReusableView" id="Dd3-YQ-fjG">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PartyCollectionViewHeader" id="Dd3-YQ-fjG">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dn-pz-wc6">
-                                    <rect key="frame" x="4" y="0.0" width="367" height="129"/>
-                                    <subviews>
-                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="VEp-zd-jDi">
-                                            <rect key="frame" x="156" y="92" width="55" height="37"/>
-                                        </pageControl>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="VEp-zd-jDi" firstAttribute="bottom" secondItem="0wd-Bs-Zuy" secondAttribute="bottom" id="3S2-Rq-woS"/>
-                                        <constraint firstAttribute="trailing" secondItem="VEp-zd-jDi" secondAttribute="trailing" constant="156" id="6ul-Bq-ZsI"/>
-                                        <constraint firstItem="VEp-zd-jDi" firstAttribute="centerX" secondItem="6Dn-pz-wc6" secondAttribute="centerX" id="Lov-YU-KYK"/>
-                                        <constraint firstAttribute="bottom" secondItem="VEp-zd-jDi" secondAttribute="bottom" id="VG1-Wk-SuX"/>
-                                        <constraint firstItem="VEp-zd-jDi" firstAttribute="top" secondItem="0wd-Bs-Zuy" secondAttribute="top" constant="92" id="mhb-oM-lez"/>
-                                    </constraints>
-                                    <viewLayoutGuide key="contentLayoutGuide" id="oKt-xg-yf6"/>
-                                    <viewLayoutGuide key="frameLayoutGuide" id="0wd-Bs-Zuy"/>
-                                </scrollView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-vN-lOP" customClass="NewsBannerCollectionView" customModule="EcoParty_Ios" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="4" width="359" height="133"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="9v1-OV-qMW">
+                                        <size key="itemSize" width="355" height="135"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <cells>
+                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsBannerCell" id="VVJ-yE-hWR" customClass="NewsBannerCollectionViewCell" customModule="EcoParty_Ios" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="-1" width="355" height="135"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vvr-GX-v22">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="135"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner3" translatesAutoresizingMaskIntoConstraints="NO" id="8gf-Ik-wNo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="135"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="135" id="EeD-YX-7Wx"/>
+                                                            <constraint firstAttribute="width" constant="355" id="tdl-Y9-4uk"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="8gf-Ik-wNo" firstAttribute="top" secondItem="Vvr-GX-v22" secondAttribute="top" id="60x-Vh-ZEk"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8gf-Ik-wNo" secondAttribute="bottom" id="UBU-JF-XIH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8gf-Ik-wNo" secondAttribute="trailing" id="atk-XN-BFM"/>
+                                                    <constraint firstItem="8gf-Ik-wNo" firstAttribute="leading" secondItem="Vvr-GX-v22" secondAttribute="leading" id="gHK-id-P8r"/>
+                                                </constraints>
+                                            </collectionViewCellContentView>
+                                            <size key="customSize" width="355" height="135"/>
+                                            <connections>
+                                                <outlet property="newsImageView" destination="8gf-Ik-wNo" id="5Up-Jd-EeD"/>
+                                            </connections>
+                                        </collectionViewCell>
+                                    </cells>
+                                </collectionView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="weH-E0-Ihi">
                                     <rect key="frame" x="4" y="137" width="367" height="129"/>
                                     <constraints>
@@ -137,11 +159,12 @@
                                 </imageView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="weH-E0-Ihi" firstAttribute="top" secondItem="6Dn-pz-wc6" secondAttribute="bottom" constant="8" id="Bk0-Js-u9K"/>
-                                <constraint firstItem="6Dn-pz-wc6" firstAttribute="leading" secondItem="weH-E0-Ihi" secondAttribute="leading" id="KWe-ZG-QKg"/>
+                                <constraint firstItem="weH-E0-Ihi" firstAttribute="top" secondItem="LtH-vN-lOP" secondAttribute="bottom" id="9jx-Yt-bdJ"/>
+                                <constraint firstItem="LtH-vN-lOP" firstAttribute="top" secondItem="Dd3-YQ-fjG" secondAttribute="top" constant="4" id="Sh9-o2-28A"/>
+                                <constraint firstItem="LtH-vN-lOP" firstAttribute="leading" secondItem="Dd3-YQ-fjG" secondAttribute="leading" constant="8" id="UFh-jn-ViH"/>
                                 <constraint firstItem="weH-E0-Ihi" firstAttribute="leading" secondItem="Dd3-YQ-fjG" secondAttribute="leading" constant="4" id="USK-V8-c4h"/>
+                                <constraint firstAttribute="trailing" secondItem="LtH-vN-lOP" secondAttribute="trailing" constant="8" id="nGX-3j-wwW"/>
                                 <constraint firstAttribute="bottom" secondItem="weH-E0-Ihi" secondAttribute="bottom" constant="8" id="qj5-PI-hnI"/>
-                                <constraint firstItem="6Dn-pz-wc6" firstAttribute="trailing" secondItem="weH-E0-Ihi" secondAttribute="trailing" id="tXc-bE-UIQ"/>
                                 <constraint firstAttribute="trailing" secondItem="weH-E0-Ihi" secondAttribute="trailing" constant="4" id="vej-JI-tzP"/>
                             </constraints>
                         </collectionReusableView>
@@ -150,7 +173,9 @@
                             <outlet property="delegate" destination="acm-we-y4h" id="JLO-03-Up4"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="q1U-lZ-TrF"/>
+                    <navigationItem key="navigationItem" id="q1U-lZ-TrF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gpo-ti-7C4"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQF-9c-Kpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,11 +201,11 @@
             </objects>
             <point key="canvasLocation" x="291.304347826087" y="-2327.0089285714284"/>
         </scene>
-        <!--Item-->
+        <!--活動-->
         <scene sceneID="zKe-eS-9Af">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8nD-KE-ck5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="party" id="wlJ-v5-Ntx"/>
+                    <tabBarItem key="tabBarItem" title="活動" image="party" id="wlJ-v5-Ntx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i6a-ag-ebS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -217,10 +242,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="item0" width="1024" height="683"/>
+        <image name="banner3" width="828" height="388"/>
+        <image name="noImage" width="150" height="92"/>
         <image name="party" width="31" height="37"/>
-        <image name="pic0" width="560" height="350"/>
         <image name="pic1" width="1148" height="580"/>
+        <image name="woman" width="244" height="230"/>
         <namedColor name="深灰">
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
