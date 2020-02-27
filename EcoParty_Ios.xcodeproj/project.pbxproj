@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70137781240673EA0069594E /* NewsBannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70137780240673EA0069594E /* NewsBannerCollectionView.swift */; };
+		700547842407516700643E7C /* PartyCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700547832407516700643E7C /* PartyCollectionReusableView.swift */; };
+		700547862407D8B200643E7C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700547852407D8B200643E7C /* News.swift */; };
 		701377872406758D0069594E /* NewsBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701377862406758D0069594E /* NewsBannerCollectionViewCell.swift */; };
 		701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */; };
 		701D94EE23FFD62E00D7AB04 /* InformTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */; };
 		701D94F023FFD63B00D7AB04 /* InformTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */; };
 		702B3FCD23FB790C0071006B /* PieceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B3FCC23FB790C0071006B /* PieceCollectionViewController.swift */; };
 		702B3FCF23FB79200071006B /* PieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B3FCE23FB79200071006B /* PieceCollectionViewCell.swift */; };
+		7055EF6B240821E800120C37 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7055EF6A240821E700120C37 /* News.storyboard */; };
 		70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51223FA97CB00374B38 /* AppDelegate.swift */; };
 		70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51423FA97CB00374B38 /* SceneDelegate.swift */; };
 		70A7C51A23FA97CB00374B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A7C51823FA97CB00374B38 /* Main.storyboard */; };
@@ -28,13 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		70137780240673EA0069594E /* NewsBannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBannerCollectionView.swift; sourceTree = "<group>"; };
+		700547832407516700643E7C /* PartyCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCollectionReusableView.swift; sourceTree = "<group>"; };
+		700547852407D8B200643E7C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		701377862406758D0069594E /* NewsBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewController.swift; sourceTree = "<group>"; };
 		701D94ED23FFD62E00D7AB04 /* InformTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformTableViewController.swift; sourceTree = "<group>"; };
 		701D94EF23FFD63B00D7AB04 /* InformTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformTableViewCell.swift; sourceTree = "<group>"; };
 		702B3FCC23FB790C0071006B /* PieceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceCollectionViewController.swift; sourceTree = "<group>"; };
 		702B3FCE23FB79200071006B /* PieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceCollectionViewCell.swift; sourceTree = "<group>"; };
+		7055EF6A240821E700120C37 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		70A7C50F23FA97CB00374B38 /* EcoParty_Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoParty_Ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A7C51223FA97CB00374B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70A7C51423FA97CB00374B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,8 +68,9 @@
 		7013773D24065C400069594E /* News */ = {
 			isa = PBXGroup;
 			children = (
-				70137780240673EA0069594E /* NewsBannerCollectionView.swift */,
 				701377862406758D0069594E /* NewsBannerCollectionViewCell.swift */,
+				700547852407D8B200643E7C /* News.swift */,
+				7055EF6A240821E700120C37 /* News.storyboard */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			children = (
 				70A7C52F23FAB2DE00374B38 /* PartyCollectionViewCell.swift */,
 				701D94E523FF9CFB00D7AB04 /* PartyCollectionViewController.swift */,
+				700547832407516700643E7C /* PartyCollectionReusableView.swift */,
 				70D3F2E724051AA000AD412B /* Party.swift */,
 			);
 			path = PartyList;
@@ -202,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70A7C51F23FA97CD00374B38 /* LaunchScreen.storyboard in Resources */,
+				7055EF6B240821E800120C37 /* News.storyboard in Resources */,
 				70A7C51C23FA97CD00374B38 /* Assets.xcassets in Resources */,
 				70A7C51A23FA97CB00374B38 /* Main.storyboard in Resources */,
 				70D3F2E62404C63700AD412B /* Inform.storyboard in Resources */,
@@ -219,9 +226,10 @@
 				70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */,
 				701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */,
 				70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */,
-				70137781240673EA0069594E /* NewsBannerCollectionView.swift in Sources */,
 				701D94EE23FFD62E00D7AB04 /* InformTableViewController.swift in Sources */,
+				700547862407D8B200643E7C /* News.swift in Sources */,
 				70AE38F42403AFD900379852 /* Common.swift in Sources */,
+				700547842407516700643E7C /* PartyCollectionReusableView.swift in Sources */,
 				70A7C53023FAB2DE00374B38 /* PartyCollectionViewCell.swift in Sources */,
 				701377872406758D0069594E /* NewsBannerCollectionViewCell.swift in Sources */,
 				70D3F2E824051AA000AD412B /* Party.swift in Sources */,

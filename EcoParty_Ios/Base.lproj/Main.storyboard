@@ -49,8 +49,8 @@
                                             <color key="textColor" name="深灰"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-gh-sen">
-                                            <rect key="frame" x="8" y="208" width="163" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-gh-sen">
+                                            <rect key="frame" x="8" y="208" width="163" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="深灰"/>
                                             <nil key="highlightedColor"/>
@@ -72,6 +72,7 @@
                                         <constraint firstItem="XOB-gh-sen" firstAttribute="top" secondItem="s5a-ez-Ncp" secondAttribute="bottom" constant="4" id="1MY-YC-R3H"/>
                                         <constraint firstItem="5fo-kY-WW4" firstAttribute="top" secondItem="8mV-vT-x3b" secondAttribute="top" constant="5" id="3Ih-H4-VjD"/>
                                         <constraint firstAttribute="trailing" secondItem="5fo-kY-WW4" secondAttribute="trailing" constant="5" id="A1h-ys-CxZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="XOB-gh-sen" secondAttribute="bottom" constant="4" id="B5G-A7-ktB"/>
                                         <constraint firstItem="s5a-ez-Ncp" firstAttribute="top" secondItem="Qcc-th-iJY" secondAttribute="bottom" constant="4" id="EpL-Qd-GfD"/>
                                         <constraint firstItem="5fo-kY-WW4" firstAttribute="leading" secondItem="8mV-vT-x3b" secondAttribute="leading" constant="5" id="HBa-o4-nQs"/>
                                         <constraint firstAttribute="trailing" secondItem="6gD-97-hZc" secondAttribute="trailing" constant="8" id="Rxp-56-E1f"/>
@@ -107,11 +108,11 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PartyCollectionViewHeader" id="Dd3-YQ-fjG">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PartyCollectionReusableView" id="Dd3-YQ-fjG" customClass="PartyCollectionReusableView" customModule="EcoParty_Ios" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-vN-lOP" customClass="NewsBannerCollectionView" customModule="EcoParty_Ios" customModuleProvider="target">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-vN-lOP">
                                     <rect key="frame" x="8" y="4" width="359" height="133"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="9v1-OV-qMW">
@@ -128,7 +129,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="135"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner3" translatesAutoresizingMaskIntoConstraints="NO" id="8gf-Ik-wNo">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="8gf-Ik-wNo">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="135"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="135" id="EeD-YX-7Wx"/>
@@ -167,6 +168,11 @@
                                 <constraint firstAttribute="bottom" secondItem="weH-E0-Ihi" secondAttribute="bottom" constant="8" id="qj5-PI-hnI"/>
                                 <constraint firstAttribute="trailing" secondItem="weH-E0-Ihi" secondAttribute="trailing" constant="4" id="vej-JI-tzP"/>
                             </constraints>
+                            <connections>
+                                <outlet property="image" destination="weH-E0-Ihi" id="5np-3R-6Y6"/>
+                                <outlet property="partyHeaderCollection" destination="LtH-vN-lOP" id="DEh-Iq-AgC"/>
+                                <outlet property="partyHeaderCollectionViewFlowLayout" destination="9v1-OV-qMW" id="omU-89-j62"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="acm-we-y4h" id="hTn-hK-Od3"/>
@@ -242,7 +248,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="banner3" width="828" height="388"/>
         <image name="noImage" width="150" height="92"/>
         <image name="party" width="31" height="37"/>
         <image name="pic1" width="1148" height="580"/>

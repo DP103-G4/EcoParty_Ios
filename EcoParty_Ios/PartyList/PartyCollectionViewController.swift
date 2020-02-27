@@ -74,6 +74,7 @@ class PartyCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
+        print("aaa \(partyLists.count)")
         return partyLists.count
     }
     
@@ -117,6 +118,7 @@ class PartyCollectionViewController: UICollectionViewController {
                     }
                     DispatchQueue.main.async {
                         cell.partyOwnerImage.image = ownerImg
+                        
                     }
                 } else {
                     print(error!.localizedDescription)
@@ -166,10 +168,31 @@ class PartyCollectionViewController: UICollectionViewController {
      
      }
      */
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PartyCollectionViewHeader", for: indexPath) 
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        return headerView
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        // 2
+        case UICollectionView.elementKindSectionHeader:
+            // 3
+            let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "PartyCollectionReusableView",
+                for: indexPath) as? PartyCollectionReusableView
+            if headerView != nil  {
+                headerView!.partyHeaderCollection.delegate = headerView
+                headerView!.partyHeaderCollection.dataSource = headerView
+                
+            } else {
+                fatalError("Invalid view type")
+            }
+            return headerView!
+        default:
+            assert(false, "Invalid element type")
+        }
     }
     
     @objc func showPartyList() {
