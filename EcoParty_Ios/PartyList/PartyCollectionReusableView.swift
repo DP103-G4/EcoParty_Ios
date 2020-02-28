@@ -18,7 +18,6 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
     @IBOutlet weak var partyHeaderCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollection: UICollectionView!
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let width = partyHeaderCollection.bounds.width - 1 * 2
         let layout = partyHeaderCollectionViewFlowLayout
@@ -46,6 +45,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
                     }
                     DispatchQueue.main.async {
                         cell.newsImageView.image = newsImg
+                        self.partyHeaderCollection.reloadData()
                     }
                 } else {
                     print(error!.localizedDescription)
@@ -68,7 +68,6 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
                         if let result = try? JSONDecoder().decode([News].self, from: data!) {
                             self.news = result
                             DispatchQueue.main.async {
-                                self.partyHeaderCollection.reloadData()
                             }
                         }
                     }
@@ -80,3 +79,4 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
     }
     
 }
+

@@ -60,7 +60,11 @@
                             <outlet property="delegate" destination="9G9-eb-BZ6" id="8K4-4X-Ix3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OdB-xu-0bP"/>
+                    <navigationItem key="navigationItem" id="OdB-xu-0bP">
+                        <barButtonItem key="rightBarButtonItem" title="全部已讀" id="W2e-ZG-sR0">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC7-ts-zhP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

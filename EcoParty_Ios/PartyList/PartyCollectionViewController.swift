@@ -10,20 +10,24 @@ import UIKit
 
 private let reuseIdentifier = "PartyCollectionViewCell"
 
-class PartyCollectionViewController: UICollectionViewController {
+class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {
     
     var partyLists = [PartyList]()
     let url_server = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
+    var searchParties = [PartyList]()
     var imageArray = [String]()
+    var search = false
     var refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //                titleView的元件換成searchBar
         let searchBar = UISearchBar()
+        searchBar.delegate = self
         searchBar.placeholder = "請輸入活動名稱"
         navigationItem.titleView = searchBar
+        
         let width = (collectionView.bounds.width - 5 * 2) / 2
         let layout = collectionViewLayout as? UICollectionViewFlowLayout
         layout?.itemSize = CGSize(width: width, height: width + 55)
@@ -45,6 +49,26 @@ class PartyCollectionViewController: UICollectionViewController {
         //            tabItem.badgeValue = "1"
         //        }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let text = searchBar.text ?? ""
+        // 如果搜尋條件為空字串，就顯示原始資料；否則就顯示搜尋後結果
+        if text == "" {
+            search = false
+        } else {
+            // 搜尋原始資料內有無包含關鍵字(不區別大小寫)
+            searchParties = partyLists.filter({ (partyList) -> Bool in
+                return partyList.name.uppercased().contains(text.uppercased())
+            })
+            search = true
+        }
+        collectionView.reloadData()
+    }
+    
+    // 點擊鍵盤上的Search按鈕時將鍵盤隱藏
+      func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+          searchBar.resignFirstResponder()
+      }
     
     func loadData() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
@@ -74,13 +98,22 @@ class PartyCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        print("aaa \(partyLists.count)")
-        return partyLists.count
+        if search {
+            return searchParties.count
+        } else {
+            return partyLists.count
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var partyList: PartyList
+        if search {
+            partyList = searchParties[indexPath.row]
+        } else {
+            partyList = partyLists[indexPath.item]
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PartyCollectionViewCell
-        let partyList = partyLists[indexPath.item]
         requestParam["action"] = "getCoverImg"
         requestParam["id"] = partyList.id
         requestParam["imageSize"] = cell.frame.width
@@ -185,7 +218,6 @@ class PartyCollectionViewController: UICollectionViewController {
             if headerView != nil  {
                 headerView!.partyHeaderCollection.delegate = headerView
                 headerView!.partyHeaderCollection.dataSource = headerView
-                
             } else {
                 fatalError("Invalid view type")
             }
