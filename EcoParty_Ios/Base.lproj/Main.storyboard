@@ -150,7 +150,7 @@
                                         </collectionViewCell>
                                     </cells>
                                 </collectionView>
-                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="weH-E0-Ihi">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="weH-E0-Ihi">
                                     <rect key="frame" x="4" y="137" width="367" height="129"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="129" id="EWe-Cd-uAk"/>
@@ -168,9 +168,9 @@
                                 <constraint firstAttribute="trailing" secondItem="weH-E0-Ihi" secondAttribute="trailing" constant="4" id="vej-JI-tzP"/>
                             </constraints>
                             <connections>
-                                <outlet property="image" destination="weH-E0-Ihi" id="5np-3R-6Y6"/>
-                                <outlet property="partyHeaderCollection" destination="LtH-vN-lOP" id="DEh-Iq-AgC"/>
-                                <outlet property="partyHeaderCollectionViewFlowLayout" destination="9v1-OV-qMW" id="omU-89-j62"/>
+                                <outlet property="image" destination="weH-E0-Ihi" id="1kd-Xs-gT8"/>
+                                <outlet property="partyHeaderCollection" destination="LtH-vN-lOP" id="oOU-tp-8d7"/>
+                                <outlet property="partyHeaderCollectionViewFlowLayout" destination="9v1-OV-qMW" id="gAL-hm-utg"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -211,7 +211,7 @@
         <!--活動-->
         <scene sceneID="zKe-eS-9Af">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8nD-KE-ck5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nb" automaticallyAdjustsScrollViewInsets="NO" id="8nD-KE-ck5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="活動" image="party" id="wlJ-v5-Ntx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i6a-ag-ebS">

@@ -11,4 +11,6 @@ import UIKit
 class NewsBannerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var newsImageView: UIImageView!
+    var newsData: News?
+    
 }

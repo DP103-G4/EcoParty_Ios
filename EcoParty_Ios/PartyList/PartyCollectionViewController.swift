@@ -11,6 +11,7 @@ import UIKit
 private let reuseIdentifier = "PartyCollectionViewCell"
 
 class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {
+    var news = [News]()
     
     var partyLists = [PartyList]()
     let url_server = URL(string: common_url + "PartyServlet")
@@ -66,9 +67,9 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
     }
     
     // 點擊鍵盤上的Search按鈕時將鍵盤隱藏
-      func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-          searchBar.resignFirstResponder()
-      }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
     
     func loadData() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
@@ -78,18 +79,6 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    // MARK: UICollectionViewDataSource
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -98,6 +87,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
+        
         if search {
             return searchParties.count
         } else {
@@ -171,41 +161,6 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         return cell
     }
     
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         // 2
@@ -216,8 +171,11 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
                 withReuseIdentifier: "PartyCollectionReusableView",
                 for: indexPath) as? PartyCollectionReusableView
             if headerView != nil  {
-                headerView!.partyHeaderCollection.delegate = headerView
-                headerView!.partyHeaderCollection.dataSource = headerView
+                headerView?.partyHeaderCollection.delegate = headerView
+                headerView?.partyHeaderCollection.dataSource = headerView
+                headerView?.delegate = self as PartyCollectionReusableViewDelegate
+                headerView?.getNews()
+                
             } else {
                 fatalError("Invalid view type")
             }
@@ -253,4 +211,27 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
             }
         }
     }
+//    使用segue的方式
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "showNewsDetail" {
+    //            if let senderData = sender as? News {
+    //                let controller = segue.destination as? NewsViewController
+    //                controller?.news = senderData
+    //            }
+    //        }
+    //    }
+}
+
+
+
+extension PartyCollectionViewController: PartyCollectionReusableViewDelegate {
+    func didSelectItemWithData(data: News?) {
+//        使用segue的方式
+//        self.performSegue(withIdentifier: "showNewsDetail", sender: data)
+//        不使用segue的方式
+        let controller = UIStoryboard(name: "News", bundle: nil).instantiateViewController(identifier: "NewsViewController") as! NewsViewController
+        controller.news = data
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }

@@ -9,9 +9,20 @@
 import Foundation
 
 struct News: Codable {
-    var id: Int?
-    var title: String?
-    var content: String?
-//    var time: Date
+    var id: Int
+    var title: String
+    var content: String
+    var time: Date?
+    
+    var dateStr: String {
+        if time != nil {
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            return format.string(from: time!)
+        } else {
+            return ""
+        }
+    }
     
 }
+

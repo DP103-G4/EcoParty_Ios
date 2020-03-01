@@ -11,10 +11,9 @@ import UIKit
 class InformTableViewController: UITableViewController {
     var informs = [Inform]()
     let url_server = URL(string: common_url + "InformServlet")
-    
+    var requestParam = [String: Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.tableFooterView = UIView(frame: .zero)
         
     }
@@ -23,7 +22,6 @@ class InformTableViewController: UITableViewController {
         showInforms()
     }
     func showInforms() {
-        var requestParam = [String: Any]()
         requestParam["action"] = "getAllInform"
         requestParam["receiverId"] = 2
         let decoder = JSONDecoder()
@@ -63,6 +61,7 @@ class InformTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InformTableViewCell", for: indexPath) as! InformTableViewCell
         let inform = informs[indexPath.row]
+        
         cell.informTitleLabel.text = "活動通知"
         cell.informContentLabel.text = inform.content
         if inform.isRead == true {
@@ -73,6 +72,27 @@ class InformTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func setAllRead(_ sender: Any) {
+        requestParam["action"] = "setRead"
+        requestParam["receiverId"] = 2
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                }
+                if let result = try? JSONDecoder().decode([Inform].self, from: data!) {
+                    self.informs = result
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
     
     
     /*
