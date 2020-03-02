@@ -34,6 +34,12 @@ struct PieceList: Codable {
     
 }
 
+struct CurrentPartyList: Codable {
+    var id: Int
+    //        var state: Int
+    
+}
+
 struct PartyList: Codable {
     var id: Int
     var ownerId: Int?

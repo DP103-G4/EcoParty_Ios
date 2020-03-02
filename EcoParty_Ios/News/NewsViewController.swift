@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, UIScrollViewDelegate {
     let url_server = URL(string: common_url + "NewsServlet")
     var news : News?
     

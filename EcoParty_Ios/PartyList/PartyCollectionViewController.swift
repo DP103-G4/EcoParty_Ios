@@ -10,9 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "PartyCollectionViewCell"
 
-class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {
-    var news = [News]()
-    
+class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {    
     var partyLists = [PartyList]()
     let url_server = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
@@ -33,7 +31,6 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         let layout = collectionViewLayout as? UICollectionViewFlowLayout
         layout?.itemSize = CGSize(width: width, height: width + 55)
         layout?.estimatedItemSize = .zero
-        
         collectionView.addSubview(refresh)
         loadData()
         
@@ -44,11 +41,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         showPartyList()
         
         
-        //        設定tab小圓點
-        //        if let tabItems = tabBarController?.tabBar.items {
-        //            let tabItem = tabItems[2]
-        //            tabItem.badgeValue = "1"
-        //        }
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -174,7 +167,10 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
                 headerView?.partyHeaderCollection.delegate = headerView
                 headerView?.partyHeaderCollection.dataSource = headerView
                 headerView?.delegate = self as PartyCollectionReusableViewDelegate
+                headerView?.currentPartyCollectionView.delegate = headerView
+                headerView?.currentPartyCollectionView.dataSource = headerView
                 headerView?.getNews()
+                headerView?.getCurrentParty()
                 
             } else {
                 fatalError("Invalid view type")
@@ -211,7 +207,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
             }
         }
     }
-//    使用segue的方式
+    //    使用segue的方式
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     //        if segue.identifier == "showNewsDetail" {
     //            if let senderData = sender as? News {
@@ -225,10 +221,11 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
 
 
 extension PartyCollectionViewController: PartyCollectionReusableViewDelegate {
+
     func didSelectItemWithData(data: News?) {
-//        使用segue的方式
-//        self.performSegue(withIdentifier: "showNewsDetail", sender: data)
-//        不使用segue的方式
+        //        使用segue的方式
+        //        self.performSegue(withIdentifier: "showNewsDetail", sender: data)
+        //        不使用segue的方式
         let controller = UIStoryboard(name: "News", bundle: nil).instantiateViewController(identifier: "NewsViewController") as! NewsViewController
         controller.news = data
         self.navigationController?.pushViewController(controller, animated: true)

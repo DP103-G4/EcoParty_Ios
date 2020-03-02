@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FKw-ig-Ig0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="t4s-wb-yEJ">
+            <objects>
+                <viewController id="R0X-SO-qYn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UOf-Nf-rCW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JXw-i2-Fev"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aMB-Aw-arJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lyd-19-Tau" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081.1594202898552" y="96.428571428571431"/>
+        </scene>
+        <!--聊天-->
+        <scene sceneID="YY9-7Q-IS0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FKw-ig-Ig0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="聊天" image="chat" id="ThC-av-Jn4"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Uq-Sf-KAG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R0X-SO-qYn" kind="relationship" relationship="rootViewController" id="NHZ-8u-JC6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QxU-vQ-iNw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171.01449275362319" y="96.428571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chat" width="29" height="27"/>
+    </resources>
+</document>

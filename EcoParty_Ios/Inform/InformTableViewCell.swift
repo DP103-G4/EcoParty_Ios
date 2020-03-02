@@ -9,9 +9,10 @@
 import UIKit
 
 class InformTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var informContentLabel: UILabel!
     @IBOutlet weak var informTitleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
