@@ -10,7 +10,7 @@
         <!--Piece Collection View Controller-->
         <scene sceneID="v50-bT-yfe">
             <objects>
-                <collectionViewController id="h8I-8j-jbD" customClass="PieceCollectionViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PieceCollectionViewController" id="h8I-8j-jbD" customClass="PieceCollectionViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DCD-1p-gra">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="noImage" width="150" height="92"/>
-        <image name="photo" width="34" height="27"/>
+        <image name="noImage" width="75" height="46"/>
+        <image name="photo" width="17" height="13.5"/>
     </resources>
 </document>

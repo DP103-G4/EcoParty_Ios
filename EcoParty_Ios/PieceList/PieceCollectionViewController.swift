@@ -12,7 +12,7 @@ private let reuseIdentifier = "PieceCollectionViewCell"
 
 class PieceCollectionViewController: UICollectionViewController {
     var pieceLists = [PieceList]()
-    
+    var userId: Int?
     let url_server = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
     
@@ -27,6 +27,9 @@ class PieceCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let user = readDemoUser() {
+            self.userId = user
+        } 
         showPieceList()
     }
     
@@ -54,13 +57,13 @@ class PieceCollectionViewController: UICollectionViewController {
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
         return pieceLists.count
     }
     
@@ -74,13 +77,13 @@ class PieceCollectionViewController: UICollectionViewController {
         //    圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
         requestParam["imageSize"] = cell.frame.width
         var image: UIImage?
-
+        
         if let url = url_server {
             executeTask(url, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
                         image = UIImage(data: data!)
-
+                        
                     }
                     if image == nil {
                         image = UIImage(named: "noImage")
@@ -93,8 +96,6 @@ class PieceCollectionViewController: UICollectionViewController {
                 }
             }
         }
-        
         return cell
     }
-    
 }

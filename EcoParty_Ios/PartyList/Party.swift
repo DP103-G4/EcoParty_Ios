@@ -34,6 +34,16 @@ struct PieceList: Codable {
     
 }
 
+struct MyPartyList: Codable {
+    var id: Int
+    
+}
+
+struct MyPieceList: Codable {
+    var id: Int
+    
+}
+
 struct CurrentPartyList: Codable {
     var id: Int
     //        var state: Int
@@ -45,7 +55,7 @@ struct PartyList: Codable {
     var ownerId: Int?
     var name: String
     var startTime: Date
-    var address: String
+    var location: String
     //    var state: Int
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 class InformTableViewController: UITableViewController {
     var informs = [Inform]()
+    var userId: Int?
     let url_server = URL(string: common_url + "InformServlet")
     var requestParam = [String: Any]()
     override func viewDidLoad() {
@@ -18,11 +19,14 @@ class InformTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let user = readDemoUser() {
+             self.userId = user
+         } 
         showInforms()
     }
     func showInforms() {
         requestParam["action"] = "getAllInform"
-        requestParam["receiverId"] = 2
+        requestParam["receiverId"] = userId
         let decoder = JSONDecoder()
         let format = DateFormatter()
         format.dateFormat = "yyy-MM-dd HH:mm:ss"
@@ -47,15 +51,14 @@ class InformTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-      
+        
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         return informs.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InformTableViewCell", for: indexPath) as! InformTableViewCell
@@ -66,13 +69,12 @@ class InformTableViewController: UITableViewController {
         if inform.isRead == true {
             cell.backgroundColor = UIColor.white
         }
-    
         return cell
     }
     
     @IBAction func setAllRead(_ sender: Any) {
         requestParam["action"] = "setRead"
-        requestParam["receiverId"] = 2
+        requestParam["receiverId"] = userId
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -82,13 +84,11 @@ class InformTableViewController: UITableViewController {
                     self.informs = result
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                    
                     }
                 }
             } else {
                 print(error!.localizedDescription)
             }
         }
-        
     }
 }
