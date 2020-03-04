@@ -25,8 +25,6 @@ class UserTableViewController: UITableViewController {
         
         if let user = readDemoUser() {
             self.userId = user
-        } else {
-            userId = 0
         }
         self.tableView.reloadData()
     }

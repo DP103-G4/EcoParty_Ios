@@ -43,9 +43,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         if let user = readDemoUser() {
             self.userId = user
             print("dsa \(user)")
-        } else {
-            userId = 0
-        }
+        } 
         showPartyList()
         
     }

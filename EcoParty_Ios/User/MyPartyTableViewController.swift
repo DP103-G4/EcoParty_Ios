@@ -26,9 +26,7 @@ class MyPartyTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let user = readDemoUser() {
             self.userId = user
-        } else {
-            userId = 0
-        }
+        } 
         showParty()
         showPiece()
     }
