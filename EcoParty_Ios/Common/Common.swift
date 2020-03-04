@@ -25,3 +25,40 @@ func showSimpleAlert(message: String, viewController: UIViewController) {
     /* 呼叫present()才會跳出Alert Controller */
     viewController.present(alertController, animated: true, completion:nil)
 }
+
+func saveUser(_ user: UserLogin) {
+    if let jsonData = try? PropertyListEncoder().encode(user) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(jsonData, forKey: "user")
+    }
+}
+
+func clearUser() {
+    let userDefaults = UserDefaults.standard
+    userDefaults.set(0, forKey: "user")
+}
+
+func loadUser() -> UserLogin? {
+    let userDefaults = UserDefaults.standard
+    if let jsonData = userDefaults.data(forKey: "user") {
+        if let user = try? PropertyListDecoder().decode(UserLogin.self, from: jsonData) {
+            print("nba \(user)")
+            return user
+        }
+    }
+    return nil
+}
+
+func saveDemoUser(id: Int ) {
+    UserDefaults.standard.set(id, forKey: "user")
+}
+
+func readDemoUser() -> Int? {
+    if let id = UserDefaults.standard.object(forKey: "user") as? Int {
+        return id
+
+    } else {
+        return 0
+    }
+    
+}

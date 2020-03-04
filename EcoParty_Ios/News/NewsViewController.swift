@@ -10,31 +10,30 @@ import UIKit
 
 
 
-class NewsViewController: UIViewController, UIScrollViewDelegate {
+class NewsViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     let url_server = URL(string: common_url + "NewsServlet")
     var news : News?
     
-
-    @IBOutlet weak var newsContentTextView: UITextView!
-    @IBOutlet weak var newsPostLabel: UILabel!
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsImageView: UIImageView!
+    @IBOutlet weak var newsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
-        newsTitleLabel.text = news?.title
-        newsContentTextView.text = news?.content
-        newsPostLabel.text = news?.dateStr
-        getNewsImage()
-
+        
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
         return
     }
     
-    func getNewsImage() {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsDetailTableViewCell", for: indexPath) as! NewsDetailTableViewCell
         var requestParam = [String: Any]()
         requestParam["action"] = "getImage"
         requestParam["id"] = news?.id
@@ -51,15 +50,19 @@ class NewsViewController: UIViewController, UIScrollViewDelegate {
                         image = UIImage(named: "noImage")
                     }
                     DispatchQueue.main.async {
-                        self.newsImageView.image = image
+                        cell.newsImageView.image = image
                     }
                 } else {
                     print(error!.localizedDescription)
                 }
             }
         }
+        cell.newsTitleLabel.text = news?.title
+        cell.newsPostLabel.text = news?.dateStr
+        cell.newsContentTextView.text = news?.content
+        
+        return cell
     }
-    
 }
 
 

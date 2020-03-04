@@ -11,7 +11,7 @@
         <!--Party Collection View Controller-->
         <scene sceneID="hNP-1S-PdB">
             <objects>
-                <collectionViewController id="acm-we-y4h" customClass="PartyCollectionViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PartyCollectionViewController" id="acm-we-y4h" customClass="PartyCollectionViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="O7l-ny-FXW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,8 +99,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="partyAddressLabel" destination="s5a-ez-Ncp" id="rCn-Hn-oBA"/>
                                     <outlet property="partyImage" destination="5fo-kY-WW4" id="0oe-QL-gg3"/>
+                                    <outlet property="partyLocationLabel" destination="s5a-ez-Ncp" id="rCn-Hn-oBA"/>
                                     <outlet property="partyNameLabel" destination="Qcc-th-iJY" id="jKW-kS-q1B"/>
                                     <outlet property="partyOwnerImage" destination="6gD-97-hZc" id="tm3-Bu-6cV"/>
                                     <outlet property="partyStartLabel" destination="XOB-gh-sen" id="eb4-ca-MIc"/>
@@ -191,10 +191,10 @@
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="15k-hq-X4c" firstAttribute="leading" secondItem="hcs-mV-BKe" secondAttribute="leading" id="9Fp-M5-axu"/>
-                                                            <constraint firstItem="crX-yv-iMF" firstAttribute="leading" secondItem="hcs-mV-BKe" secondAttribute="leadingMargin" id="KHz-al-ut0"/>
                                                             <constraint firstAttribute="bottom" secondItem="15k-hq-X4c" secondAttribute="bottom" id="Ol2-Xf-Afy"/>
-                                                            <constraint firstAttribute="bottom" secondItem="crX-yv-iMF" secondAttribute="bottom" constant="60" id="VyX-gO-o1B"/>
+                                                            <constraint firstAttribute="bottom" secondItem="crX-yv-iMF" secondAttribute="bottom" constant="60" id="k8R-me-bca"/>
                                                             <constraint firstAttribute="trailing" secondItem="15k-hq-X4c" secondAttribute="trailing" id="oUg-RN-Fnf"/>
+                                                            <constraint firstItem="crX-yv-iMF" firstAttribute="leading" secondItem="hcs-mV-BKe" secondAttribute="leading" constant="8" id="rEc-uz-6yf"/>
                                                             <constraint firstItem="15k-hq-X4c" firstAttribute="top" secondItem="hcs-mV-BKe" secondAttribute="top" id="x6i-OQ-Vmr"/>
                                                         </constraints>
                                                     </collectionViewCellContentView>

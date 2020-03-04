@@ -12,6 +12,7 @@ private let reuseIdentifier = "PartyCollectionViewCell"
 
 class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {    
     var partyLists = [PartyList]()
+    var userId: Int?
     let url_server = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
     var searchParties = [PartyList]()
@@ -34,13 +35,18 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         collectionView.addSubview(refresh)
         loadData()
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setToolbarHidden(true, animated: true)
+        if let user = readDemoUser() {
+            self.userId = user
+            print("dsa \(user)")
+        } else {
+            userId = 0
+        }
         showPartyList()
-        
-        
         
     }
     
@@ -148,7 +154,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         //        format.timeZone = TimeZone(identifier: "Asia/Taipei")
         format.dateFormat = "E M月d日"
         cell.partyNameLabel.text = partyList.name
-        cell.partyAddressLabel.text = partyList.address
+        cell.partyLocationLabel.text = partyList.location
         cell.partyStartLabel.text = format.string(from: partyList.startTime)
         
         return cell
@@ -218,10 +224,8 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
     //    }
 }
 
-
-
 extension PartyCollectionViewController: PartyCollectionReusableViewDelegate {
-
+    
     func didSelectItemWithData(data: News?) {
         //        使用segue的方式
         //        self.performSegue(withIdentifier: "showNewsDetail", sender: data)

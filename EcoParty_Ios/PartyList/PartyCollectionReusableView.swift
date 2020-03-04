@@ -7,18 +7,22 @@
 //
 
 import UIKit
+
 protocol PartyCollectionReusableViewDelegate {
     func didSelectItemWithData(data: News?)
 }
+
 class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     var news = [News]()
     var currentParties = [CurrentPartyList]()
     var delegate: PartyCollectionReusableViewDelegate?
-    
+    var userId: Int?
     let newsUrl = URL(string: common_url + "NewsServlet")
     let currentPartyUrl = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
     
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var currentPartyCollectionView: UICollectionView!
     
     @IBOutlet weak var currentPartyCollectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -31,10 +35,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
             let senderData = selectCell.newsData
             self.delegate?.didSelectItemWithData(data: senderData)
         }
-        
-        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -51,10 +52,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
             layout?.estimatedItemSize = .zero
             return currentParties.count
         }
-        
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == partyHeaderCollection {
@@ -110,10 +108,8 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
                     }
                 }
             }
-            print("bbb")
             return cell
         }
-        
     }
     
     func getCurrentParty() {
@@ -163,5 +159,5 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
             }
         }
     }
-    
 }
+

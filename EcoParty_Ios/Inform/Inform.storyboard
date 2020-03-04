@@ -10,7 +10,7 @@
         <!--Inform Table View Controller-->
         <scene sceneID="F9i-kc-bWD">
             <objects>
-                <tableViewController id="9G9-eb-BZ6" customClass="InformTableViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="InformTableViewController" id="9G9-eb-BZ6" customClass="InformTableViewController" customModule="EcoParty_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Y1-W2-b8C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="inform" width="26" height="33"/>
+        <image name="inform" width="13" height="16.5"/>
         <namedColor name="深灰">
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
