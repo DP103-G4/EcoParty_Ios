@@ -158,6 +158,8 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         return cell
     }
     
+    
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         // 2
@@ -211,6 +213,15 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
             }
         }
     }
+    
+    @IBAction func goInsertParty(_ sender: Any) {
+        let controller = UIStoryboard(name: "InsertParty", bundle: nil).instantiateViewController(identifier: "InsertPartyTableViewController") as! InsertPartyTableViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+        
+    }
+    
+    
     //    使用segue的方式
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     //        if segue.identifier == "showNewsDetail" {

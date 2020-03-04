@@ -229,6 +229,9 @@
                     <navigationItem key="navigationItem" id="q1U-lZ-TrF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gpo-ti-7C4">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="goInsertParty:" destination="acm-we-y4h" id="kKh-p0-SDn"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
