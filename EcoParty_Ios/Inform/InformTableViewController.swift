@@ -68,7 +68,7 @@ class InformTableViewController: UITableViewController {
         if inform.isRead == true {
             cell.backgroundColor = UIColor.white
         } else {
-            cell.backgroundColor = UIColor.black
+            cell.backgroundColor = UIColor(red: 255, green: 253, blue: 224, alpha: 0.5)
         }
         return cell
     }

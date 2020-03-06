@@ -25,6 +25,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var currentPartyCollectionView: UICollectionView!
     
+    @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var currentPartyCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollection: UICollectionView!
@@ -115,7 +116,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
     func getCurrentParty() {
         requestParam["action"] = "getCurrentParty"
         requestParam["state"] = 3
-        requestParam["participantId"] = 1
+        requestParam["participantId"] = 2
         if let url = currentPartyUrl {
             executeTask(url, requestParam) { (data, response, error) in
                 if error == nil {

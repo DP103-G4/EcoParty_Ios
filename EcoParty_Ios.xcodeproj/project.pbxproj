@@ -29,7 +29,6 @@
 		70A3D824240F6081004E338E /* MyPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3D823240F6081004E338E /* MyPartyTableViewCell.swift */; };
 		70A3D827240F9C20004E338E /* PartyDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D826240F9C20004E338E /* PartyDetail.storyboard */; };
 		70A3D829240F9ED0004E338E /* InsertParty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D828240F9ED0004E338E /* InsertParty.storyboard */; };
-		70A3D82E240FBB59004E338E /* InsertPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3D82D240FBB59004E338E /* InsertPartyTableViewCell.swift */; };
 		70A3D830240FBB6F004E338E /* InsertPartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3D82F240FBB6F004E338E /* InsertPartyTableViewController.swift */; };
 		70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51223FA97CB00374B38 /* AppDelegate.swift */; };
 		70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51423FA97CB00374B38 /* SceneDelegate.swift */; };
@@ -68,7 +67,6 @@
 		70A3D823240F6081004E338E /* MyPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPartyTableViewCell.swift; sourceTree = "<group>"; };
 		70A3D826240F9C20004E338E /* PartyDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PartyDetail.storyboard; sourceTree = "<group>"; };
 		70A3D828240F9ED0004E338E /* InsertParty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InsertParty.storyboard; sourceTree = "<group>"; };
-		70A3D82D240FBB59004E338E /* InsertPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertPartyTableViewCell.swift; sourceTree = "<group>"; };
 		70A3D82F240FBB6F004E338E /* InsertPartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertPartyTableViewController.swift; sourceTree = "<group>"; };
 		70A7C50F23FA97CB00374B38 /* EcoParty_Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoParty_Ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A7C51223FA97CB00374B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 			children = (
 				70A3D828240F9ED0004E338E /* InsertParty.storyboard */,
 				70A3D826240F9C20004E338E /* PartyDetail.storyboard */,
-				70A3D82D240FBB59004E338E /* InsertPartyTableViewCell.swift */,
 				70A3D82F240FBB6F004E338E /* InsertPartyTableViewController.swift */,
 			);
 			path = PartyDetail;
@@ -302,7 +299,6 @@
 				708C108A240CFE09004443D1 /* LoginViewController.swift in Sources */,
 				70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */,
 				701D94E623FF9CFB00D7AB04 /* PartyCollectionViewController.swift in Sources */,
-				70A3D82E240FBB59004E338E /* InsertPartyTableViewCell.swift in Sources */,
 				7045D0C1240BB068009B5C6D /* CurrentPartyCollectionViewCell.swift in Sources */,
 				708C1088240CF0ED004443D1 /* UserTableViewCell.swift in Sources */,
 				70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */,
