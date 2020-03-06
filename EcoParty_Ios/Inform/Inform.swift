@@ -9,12 +9,12 @@
 import Foundation
 
 struct Inform: Codable {
-    var id: Int?
-    var userId: Int?
-    var partyId: Int?
-    var time: Date?
+    var id: Int
+    var userId: Int
+    var partyId: Int
+//    var time: Date
     var content: String
-    var isRead : Bool?
-    
+    var isRead : Bool
+
 }
 

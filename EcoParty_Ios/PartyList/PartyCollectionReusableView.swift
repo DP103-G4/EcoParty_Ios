@@ -25,6 +25,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var currentPartyCollectionView: UICollectionView!
     
+    @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var currentPartyCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollection: UICollectionView!

@@ -27,6 +27,9 @@
 		708C108C240D0B02004443D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C108B240D0B02004443D1 /* User.swift */; };
 		70A3D822240F6071004E338E /* MyPartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3D821240F6071004E338E /* MyPartyTableViewController.swift */; };
 		70A3D824240F6081004E338E /* MyPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3D823240F6081004E338E /* MyPartyTableViewCell.swift */; };
+		70A3D827240F9C20004E338E /* PartyDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D826240F9C20004E338E /* PartyDetail.storyboard */; };
+		70A3D829240F9ED0004E338E /* InsertParty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D828240F9ED0004E338E /* InsertParty.storyboard */; };
+		70A3D830240FBB6F004E338E /* InsertPartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3D82F240FBB6F004E338E /* InsertPartyTableViewController.swift */; };
 		70A7C51323FA97CB00374B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51223FA97CB00374B38 /* AppDelegate.swift */; };
 		70A7C51523FA97CB00374B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C51423FA97CB00374B38 /* SceneDelegate.swift */; };
 		70A7C51A23FA97CB00374B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A7C51823FA97CB00374B38 /* Main.storyboard */; };
@@ -62,6 +65,9 @@
 		708C108B240D0B02004443D1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		70A3D821240F6071004E338E /* MyPartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPartyTableViewController.swift; sourceTree = "<group>"; };
 		70A3D823240F6081004E338E /* MyPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPartyTableViewCell.swift; sourceTree = "<group>"; };
+		70A3D826240F9C20004E338E /* PartyDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PartyDetail.storyboard; sourceTree = "<group>"; };
+		70A3D828240F9ED0004E338E /* InsertParty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InsertParty.storyboard; sourceTree = "<group>"; };
+		70A3D82F240FBB6F004E338E /* InsertPartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertPartyTableViewController.swift; sourceTree = "<group>"; };
 		70A7C50F23FA97CB00374B38 /* EcoParty_Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoParty_Ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A7C51223FA97CB00374B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70A7C51423FA97CB00374B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +158,16 @@
 			path = Friend;
 			sourceTree = "<group>";
 		};
+		70A3D825240F9BF2004E338E /* PartyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				70A3D828240F9ED0004E338E /* InsertParty.storyboard */,
+				70A3D826240F9C20004E338E /* PartyDetail.storyboard */,
+				70A3D82F240FBB6F004E338E /* InsertPartyTableViewController.swift */,
+			);
+			path = PartyDetail;
+			sourceTree = "<group>";
+		};
 		70A7C50623FA97CB00374B38 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +187,7 @@
 		70A7C51123FA97CB00374B38 /* EcoParty_Ios */ = {
 			isa = PBXGroup;
 			children = (
+				70A3D825240F9BF2004E338E /* PartyDetail */,
 				7045D0BD240B98B8009B5C6D /* Friend */,
 				7045D0B8240B8F76009B5C6D /* User */,
 				7013773D24065C400069594E /* News */,
@@ -259,7 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A3D829240F9ED0004E338E /* InsertParty.storyboard in Resources */,
 				7045D0BF240B98DF009B5C6D /* Friend.storyboard in Resources */,
+				70A3D827240F9C20004E338E /* PartyDetail.storyboard in Resources */,
 				70A7C51F23FA97CD00374B38 /* LaunchScreen.storyboard in Resources */,
 				7055EF6B240821E800120C37 /* News.storyboard in Resources */,
 				70A7C51C23FA97CD00374B38 /* Assets.xcassets in Resources */,
@@ -293,6 +312,7 @@
 				70A7C53023FAB2DE00374B38 /* PartyCollectionViewCell.swift in Sources */,
 				70A3D824240F6081004E338E /* MyPartyTableViewCell.swift in Sources */,
 				701377872406758D0069594E /* NewsBannerCollectionViewCell.swift in Sources */,
+				70A3D830240FBB6F004E338E /* InsertPartyTableViewController.swift in Sources */,
 				70D3F2E824051AA000AD412B /* Party.swift in Sources */,
 				70A3D822240F6071004E338E /* MyPartyTableViewController.swift in Sources */,
 				702B3FCD23FB790C0071006B /* PieceCollectionViewController.swift in Sources */,

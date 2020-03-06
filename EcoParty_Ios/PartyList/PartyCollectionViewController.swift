@@ -28,9 +28,9 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         searchBar.placeholder = "請輸入活動名稱"
         navigationItem.titleView = searchBar
         
-        let width = (collectionView.bounds.width - 5 * 2) / 2
+        let width = (collectionView.bounds.width - 10) / 2
         let layout = collectionViewLayout as? UICollectionViewFlowLayout
-        layout?.itemSize = CGSize(width: width, height: width + 55)
+        layout?.itemSize = CGSize(width: width - 10, height: width + 15)
         layout?.estimatedItemSize = .zero
         collectionView.addSubview(refresh)
         loadData()
@@ -115,7 +115,9 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
                         partyImg = UIImage(named: "noImage")
                     }
                     DispatchQueue.main.async {
+                        cell.partyImage.roundCorners(cornerRadius: 10.0)
                         cell.partyImage.image = partyImg
+                        
                     }
                 } else {
                     print(error!.localizedDescription)
@@ -158,6 +160,8 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         return cell
     }
     
+    
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         // 2
@@ -167,7 +171,19 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
                 ofKind: kind,
                 withReuseIdentifier: "PartyCollectionReusableView",
                 for: indexPath) as? PartyCollectionReusableView
+            
             if headerView != nil  {
+                if headerView?.currentPartyCollectionView == nil {
+                    let layout = collectionViewLayout as? UICollectionViewFlowLayout
+                    let height = headerView!.headerStackView.bounds.size.height
+                    print("stack高度：\(height)")
+                    layout!.headerReferenceSize = CGSize(width: collectionView.frame.width, height: height + 50)
+                } else {
+                    let layout = collectionViewLayout as? UICollectionViewFlowLayout
+                    let height = headerView!.headerStackView.bounds.size.height
+                    print("stack高度：\(height)")
+                    layout!.headerReferenceSize = CGSize(width: collectionView.frame.width, height: height + 173)
+                }
                 headerView?.partyHeaderCollection.delegate = headerView
                 headerView?.partyHeaderCollection.dataSource = headerView
                 headerView?.delegate = self as PartyCollectionReusableViewDelegate
@@ -211,6 +227,16 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
             }
         }
     }
+    
+    @IBAction func goInsertParty(_ sender: Any) {
+        let controller = UIStoryboard(name: "InsertParty", bundle: nil).instantiateViewController(identifier: "InsertPartyTableViewController") as! InsertPartyTableViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+        
+    }
+    
+    
+    
     //    使用segue的方式
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     //        if segue.identifier == "showNewsDetail" {
@@ -234,3 +260,17 @@ extension PartyCollectionViewController: PartyCollectionReusableViewDelegate {
     }
     
 }
+
+//調整cell圖片只有上面是圓角
+extension UIImageView  {
+    func roundCorners(cornerRadius: Double) {
+        
+        layer.cornerRadius = CGFloat(cornerRadius)
+        
+        clipsToBounds = true
+        //        layerMinXMinYCorner左上角，layerMaxXMinYCorner，右上角
+        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+    }
+}
+

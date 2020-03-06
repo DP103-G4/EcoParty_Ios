@@ -19,6 +19,7 @@ class MyPartyTableViewController: UITableViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
+        createGesture()
         tableView.tableFooterView = UIView(frame: .zero)
         tabBarController?.tabBar.isHidden = true
     }
@@ -29,6 +30,28 @@ class MyPartyTableViewController: UITableViewController {
         } 
         showParty()
         showPiece()
+    }
+    
+    func createGesture() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(changeSegment))
+        swipeLeft.numberOfTouchesRequired = 1
+        swipeLeft.direction = .left
+        view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(changeSegment))
+        swipeRight.numberOfTouchesRequired = 1
+        swipeRight.direction = .right
+        view.addGestureRecognizer(swipeRight)
+    }
+    
+    @IBAction func changeSegment(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left {
+            segmentedControl.selectedSegmentIndex = 1
+            showPiece()
+        } else {
+            segmentedControl.selectedSegmentIndex = 0
+            showParty()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

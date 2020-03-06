@@ -25,7 +25,7 @@ class NewsViewController: UIViewController, UIScrollViewDelegate, UITableViewDel
     
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
-        return
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

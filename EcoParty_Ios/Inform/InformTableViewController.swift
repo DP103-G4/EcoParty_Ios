@@ -20,8 +20,8 @@ class InformTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if let user = readDemoUser() {
-             self.userId = user
-         } 
+            self.userId = user
+        } 
         showInforms()
     }
     func showInforms() {
@@ -63,11 +63,12 @@ class InformTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InformTableViewCell", for: indexPath) as! InformTableViewCell
         let inform = informs[indexPath.row]
-        
         cell.informTitleLabel.text = "活動通知"
         cell.informContentLabel.text = inform.content
         if inform.isRead == true {
             cell.backgroundColor = UIColor.white
+        } else {
+            cell.backgroundColor = UIColor(red: 255, green: 253, blue: 224, alpha: 0.5)
         }
         return cell
     }
@@ -78,12 +79,17 @@ class InformTableViewController: UITableViewController {
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                }
-                if let result = try? JSONDecoder().decode([Inform].self, from: data!) {
-                    self.informs = result
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    if let result = String(data: data!, encoding: .utf8) {
+                        if let count = Int(result) {
+                            if count != 0 {
+                                DispatchQueue.main.async {
+                                    for i in 0...self.informs.count - 1 {
+                                        self.informs[i].isRead = true
+                                    }
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        }
                     }
                 }
             } else {
