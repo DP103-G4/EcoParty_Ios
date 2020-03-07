@@ -20,6 +20,7 @@ class MyPartyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createGesture()
+        navigationItem.title = "我的活動"
         tableView.tableFooterView = UIView(frame: .zero)
         tabBarController?.tabBar.isHidden = true
     }

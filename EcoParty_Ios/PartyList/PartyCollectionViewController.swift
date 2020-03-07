@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "PartyCollectionViewCell"
 
-class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {    
+class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {
     var partyLists = [PartyList]()
     var userId: Int?
     let url_server = URL(string: common_url + "PartyServlet")
@@ -19,22 +19,21 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
     var imageArray = [String]()
     var search = false
     var refresh = UIRefreshControl()
+    let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //                titleView的元件換成searchBar
-        let searchBar = UISearchBar()
+        
         searchBar.delegate = self
         searchBar.placeholder = "請輸入活動名稱"
+//        titleView的元件換成searchBar
         navigationItem.titleView = searchBar
         
-        let width = (collectionView.bounds.width - 10) / 2
+        let width = (collectionView.bounds.width - 12) / 2
         let layout = collectionViewLayout as? UICollectionViewFlowLayout
-        layout?.itemSize = CGSize(width: width - 10, height: width + 15)
+        layout?.itemSize = CGSize(width: width - 10, height: width + 5)
         layout?.estimatedItemSize = .zero
         collectionView.addSubview(refresh)
-        loadData()
-        
         
     }
     
@@ -43,7 +42,8 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         if let user = readDemoUser() {
             self.userId = user
             print("dsa \(user)")
-        } 
+        }
+        loadData()
         showPartyList()
         
     }
@@ -71,16 +71,10 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
     func loadData() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.refresh.addTarget(self, action: #selector(self.showPartyList), for: .valueChanged)
-            
+            self.refresh.endRefreshing()
             
         }
     }
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -127,7 +121,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         let userUrl = URL(string: common_url + "UserServlet")
         requestParam["action"] = "getImage"
         requestParam["id"] = partyList.ownerId
-        requestParam["imageSize"] = cell.frame.width / 20
+        requestParam["imageSize"] = cell.frame.width / 4
         var ownerImg: UIImage?
         if let userUrl = userUrl {
             executeTask(userUrl, requestParam) { (data, response, error) in
@@ -173,24 +167,10 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
                 for: indexPath) as? PartyCollectionReusableView
             
             if headerView != nil  {
-                if headerView?.currentPartyCollectionView == nil {
-                    let layout = collectionViewLayout as? UICollectionViewFlowLayout
-                    let height = headerView!.headerStackView.bounds.size.height
-                    print("stack高度：\(height)")
-                    layout!.headerReferenceSize = CGSize(width: collectionView.frame.width, height: height + 50)
-                } else {
-                    let layout = collectionViewLayout as? UICollectionViewFlowLayout
-                    let height = headerView!.headerStackView.bounds.size.height
-                    print("stack高度：\(height)")
-                    layout!.headerReferenceSize = CGSize(width: collectionView.frame.width, height: height + 173)
-                }
                 headerView?.partyHeaderCollection.delegate = headerView
                 headerView?.partyHeaderCollection.dataSource = headerView
                 headerView?.delegate = self as PartyCollectionReusableViewDelegate
-                headerView?.currentPartyCollectionView.delegate = headerView
-                headerView?.currentPartyCollectionView.dataSource = headerView
                 headerView?.getNews()
-                headerView?.getCurrentParty()
                 
             } else {
                 fatalError("Invalid view type")
@@ -234,8 +214,6 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         
         
     }
-    
-    
     
     //    使用segue的方式
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

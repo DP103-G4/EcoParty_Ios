@@ -16,11 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.barTintColor = UIColor(named: "主色藍")
+        navigationBarAppearace.barTintColor = UIColor(named: "主色綠")
         navigationBarAppearace.tintColor = UIColor.white
-        
         let tabBarAppearace = UITabBar.appearance()
-        tabBarAppearace.tintColor = UIColor(named: "次色藍")
+        tabBarAppearace.tintColor = UIColor(named: "次色綠")
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
+        
         
         return true
     }

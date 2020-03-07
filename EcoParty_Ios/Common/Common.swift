@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 // 實機
-// let URL_SERVER = "http://192.168.0.101:8080/EcoParty/"
+// let common_url = "http://192.168.0.101:8080/EcoParty/"
 // 模擬器
 let common_url = "http://127.0.0.1:8080/EcoParty/"
 
@@ -63,9 +63,3 @@ func readDemoUser() -> Int? {
     
 }
 
-enum RepeatType: Int {
-    case Once = 0
-    case Daily = 1
-    case Weekly = 2
-    case Monthly = 3
-}

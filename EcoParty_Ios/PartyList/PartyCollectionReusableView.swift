@@ -15,18 +15,11 @@ protocol PartyCollectionReusableViewDelegate {
 class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var news = [News]()
-    var currentParties = [CurrentPartyList]()
     var delegate: PartyCollectionReusableViewDelegate?
     var userId: Int?
     let newsUrl = URL(string: common_url + "NewsServlet")
-    let currentPartyUrl = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
     
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var currentPartyCollectionView: UICollectionView!
-    
-    @IBOutlet weak var headerStackView: UIStackView!
-    @IBOutlet weak var currentPartyCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var partyHeaderCollection: UICollectionView!
     
@@ -39,24 +32,16 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == partyHeaderCollection {
-            let width = partyHeaderCollection.bounds.width - 5
+  
+            let width = partyHeaderCollection.bounds.width 
             let layout = partyHeaderCollectionViewFlowLayout
             layout?.itemSize = CGSize(width: width, height: width)
             layout?.estimatedItemSize = .zero
             return news.count
-        } else {
-            let width = currentPartyCollectionView.bounds.width - 5
-            let layout = currentPartyCollectionViewFlowLayout
-            layout?.itemSize = CGSize(width: width, height: width)
-            layout?.estimatedItemSize = .zero
-            return currentParties.count
-        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == partyHeaderCollection {
             let cell = partyHeaderCollection.dequeueReusableCell(withReuseIdentifier: "newsBannerCell", for: indexPath) as! NewsBannerCollectionViewCell
             let newsImage = news[indexPath.item]
             requestParam["action"] = "getImage"
@@ -85,55 +70,6 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
             cell.newsData = self.news[indexPath.item]
             print("aaa")
             return cell
-        } else {
-            let cell = currentPartyCollectionView.dequeueReusableCell(withReuseIdentifier: "CurrentPartyCollectionViewCell", for: indexPath) as! CurrentPartyCollectionViewCell
-            let currentPartyImage = currentParties[indexPath.item]
-            requestParam["action"] = "getCoverImg"
-            requestParam["id"] = currentPartyImage.id
-            requestParam["imageSize"] = cell.frame.width
-            var currentPartyImg: UIImage?
-            if let url = currentPartyUrl {
-                executeTask(url, requestParam) { (data, response, error) in
-                    if error == nil {
-                        if data != nil {
-                            currentPartyImg = UIImage(data: data!)
-                        }
-                        if currentPartyImg == nil {
-                            currentPartyImg = UIImage(named: "noImage")
-                        }
-                        DispatchQueue.main.async {
-                            cell.currentPartyImage.image = currentPartyImg
-                        }
-                    } else {
-                        print(error!.localizedDescription)
-                    }
-                }
-            }
-            return cell
-        }
-    }
-    
-    func getCurrentParty() {
-        requestParam["action"] = "getCurrentParty"
-        requestParam["state"] = 3
-        requestParam["participantId"] = 2
-        if let url = currentPartyUrl {
-            executeTask(url, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        print("input: \(String(data: data!, encoding: .utf8)!)")
-                        if let result = try? JSONDecoder().decode([CurrentPartyList].self, from: data!) {
-                            self.currentParties = result
-                            DispatchQueue.main.async {
-                                self.currentPartyCollectionView.reloadData()
-                            }
-                        }
-                    }
-                } else {
-                    print(error!.localizedDescription)
-                }
-            }
-        }
     }
     
     func getNews() {

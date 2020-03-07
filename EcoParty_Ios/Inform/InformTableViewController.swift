@@ -68,13 +68,13 @@ class InformTableViewController: UITableViewController {
         if inform.isRead == true {
             cell.backgroundColor = UIColor.white
         } else {
-            cell.backgroundColor = UIColor(red: 255, green: 253, blue: 224, alpha: 0.5)
+            cell.backgroundColor = UIColor(red: 1, green: 253/255, blue: 224/255, alpha: 1)
         }
         return cell
     }
     
     @IBAction func setAllRead(_ sender: Any) {
-        requestParam["action"] = "setRead"
+        requestParam["action"] = "setAllRead"
         requestParam["receiverId"] = userId
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {

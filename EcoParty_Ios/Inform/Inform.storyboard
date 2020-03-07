@@ -62,7 +62,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="OdB-xu-0bP">
                         <barButtonItem key="rightBarButtonItem" title="全部已讀" id="W2e-ZG-sR0">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="setAllRead:" destination="9G9-eb-BZ6" id="47m-Rf-dNs"/>
                             </connections>
