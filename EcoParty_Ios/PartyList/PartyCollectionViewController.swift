@@ -26,7 +26,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         
         searchBar.delegate = self
         searchBar.placeholder = "請輸入活動名稱"
-//        titleView的元件換成searchBar
+        //        titleView的元件換成searchBar
         navigationItem.titleView = searchBar
         
         let width = (collectionView.bounds.width - 12) / 2
@@ -34,6 +34,8 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         layout?.itemSize = CGSize(width: width - 10, height: width + 5)
         layout?.estimatedItemSize = .zero
         collectionView.addSubview(refresh)
+        
+        createTapGesture()
         
     }
     
@@ -43,6 +45,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
             self.userId = user
             print("dsa \(user)")
         }
+        
         loadData()
         showPartyList()
         
@@ -66,6 +69,17 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
     // 點擊鍵盤上的Search按鈕時將鍵盤隱藏
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    //    加手勢點擊空白處隱藏鍵盤
+    func createTapGesture() {
+        let tapHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+//        不取消TouchesInView的話會造成點擊事件無效或是需要長按才可
+        tapHideKeyboard.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapHideKeyboard)
+    }
+    //    因為view前面有navigationController所以要加
+    @objc func hideKeyboard() {
+        navigationController?.view.endEditing(true)
     }
     
     func loadData() {
@@ -154,7 +168,10 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         return cell
     }
     
-    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = UIStoryboard(name: "PartyDetail", bundle: nil).instantiateViewController(identifier: "PartyDetailTableViewController") as! PartyDetailTableViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {

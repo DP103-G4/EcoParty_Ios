@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InsertPartyTableViewController: UITableViewController{
+class InsertPartyTableViewController: UITableViewController, UITextFieldDelegate {
     var changePhoto = false
     var imageUpload: UIImage?
     var partyImage: Data?
@@ -43,10 +43,27 @@ class InsertPartyTableViewController: UITableViewController{
     @IBOutlet weak var distanceLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        createTapGesture()
         setTextView()
         setDatePicker()
+        partyNameTextField.delegate = self
         tabBarController?.tabBar.isHidden = true
         navigationItem.title = "新增活動"
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func createTapGesture() {
+        let tapHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapHideKeyboard.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapHideKeyboard)
+    }
+    
+    @objc func hideKeyboard() {
+        navigationController?.view.endEditing(true)
     }
     
     @IBAction func changeUpperSlider(_ sender: UISlider) {

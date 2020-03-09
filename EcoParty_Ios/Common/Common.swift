@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 // 實機
-// let common_url = "http://192.168.0.101:8080/EcoParty/"
+// let common_url = "http://192.168.196.191:8080/EcoParty/"
 // 模擬器
 let common_url = "http://127.0.0.1:8080/EcoParty/"
 
