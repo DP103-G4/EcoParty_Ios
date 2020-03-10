@@ -11,10 +11,10 @@ import Foundation
 struct Party: Codable {
     var id: Int
     var name: String
-    var startTime: Date
-    var endTime: Date
-    var postTime: Date
-    var postEndTime: Date
+    var startTime: Date?
+    var endTime: Date?
+    var postTime: Date?
+    var postEndTime: Date?
     var location: String
     var address: String
     var longitude: Double?
@@ -25,6 +25,16 @@ struct Party: Codable {
     var countCurrent: Int
     var state: Int
     var distance: Int
+    
+//    var dateStr: String {
+//        if startTime != nil && startTime != nil, postTime != nil, postEndTime!= nil {
+//            let format = DateFormatter()
+//            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//            return format.string(from: time!)
+//        } else {
+//            return ""
+//        }
+//    }
     
 }
 

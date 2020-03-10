@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func demoLogin(_ sender: Any) {
-        let id = 2
+        let id = 1
         
         saveDemoUser(id: id)
         

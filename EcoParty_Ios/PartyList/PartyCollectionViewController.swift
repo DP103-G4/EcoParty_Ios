@@ -10,9 +10,14 @@ import UIKit
 
 private let reuseIdentifier = "PartyCollectionViewCell"
 
+protocol PartyCollectionViewControllerDelegate {
+    func loadParty(data: PartyList?)
+}
+
 class PartyCollectionViewController: UICollectionViewController, UISearchBarDelegate {
     var partyLists = [PartyList]()
     var userId: Int?
+    var delegate: PartyCollectionViewControllerDelegate?
     let url_server = URL(string: common_url + "PartyServlet")
     var requestParam = [String: Any]()
     var searchParties = [PartyList]()
@@ -164,13 +169,16 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         cell.partyNameLabel.text = partyList.name
         cell.partyLocationLabel.text = partyList.location
         cell.partyStartLabel.text = format.string(from: partyList.startTime)
-        
+        cell.partyListData = self.partyLists[indexPath.item]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = UIStoryboard(name: "PartyDetail", bundle: nil).instantiateViewController(identifier: "PartyDetailTableViewController") as! PartyDetailTableViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+        let selectCell = collectionView.cellForItem(at: indexPath) as! PartyCollectionViewCell
+        let senderData = selectCell.partyListData
+        self.delegate?.loadParty(data: senderData)
+//        let controller = storyboard?.instantiateViewController(identifier: "PartyDetailTableViewController") as! PartyDetailTableViewController
+//        navigationController?.pushViewController(controller, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

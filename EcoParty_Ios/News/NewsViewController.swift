@@ -19,6 +19,7 @@ class NewsViewController: UIViewController, UIScrollViewDelegate, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "最新消息"
         tabBarController?.tabBar.isHidden = true
         
     }

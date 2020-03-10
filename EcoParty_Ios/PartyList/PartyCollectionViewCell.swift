@@ -14,5 +14,5 @@ class PartyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var partyLocationLabel: UILabel!
     @IBOutlet weak var partyStartLabel: UILabel!
     @IBOutlet weak var partyOwnerImage: UIImageView!
-    
+     var partyListData: PartyList?
 }

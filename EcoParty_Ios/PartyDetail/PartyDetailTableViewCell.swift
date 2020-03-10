@@ -10,7 +10,8 @@ import UIKit
 
 class PartyDetailTableViewCell: UITableViewCell {
 
-    
+   
+
     @IBOutlet weak var msgTimeLabel: UILabel!
     @IBOutlet weak var userMsgLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!

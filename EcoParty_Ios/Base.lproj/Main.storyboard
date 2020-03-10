@@ -118,7 +118,7 @@
                                         <constraint firstAttribute="width" constant="355" id="6Mn-Vj-55u"/>
                                         <constraint firstAttribute="height" constant="100" id="fHu-OL-YoX"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="9v1-OV-qMW">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1" id="9v1-OV-qMW">
                                         <size key="itemSize" width="355" height="100"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
