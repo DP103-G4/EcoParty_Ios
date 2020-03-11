@@ -73,6 +73,34 @@ class InformTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectCell = self.tableView.cellForRow(at: indexPath)
+        let inform = informs[indexPath.row]
+        
+        requestParam["action"] = "setRead"
+        requestParam["id"] = inform.id
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let result = String(data: data!, encoding: .utf8) {
+                        if let count = Int(result) {
+                            if count != 0 {
+                                DispatchQueue.main.async {
+                                    self.informs[indexPath.row].isRead = true
+                                        selectCell?.backgroundColor = UIColor.white
+                                    
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
     @IBAction func setAllRead(_ sender: Any) {
         requestParam["action"] = "setAllRead"
         requestParam["receiverId"] = userId

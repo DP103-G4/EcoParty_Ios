@@ -95,7 +95,7 @@ class MyPartyTableViewController: UITableViewController {
         } else {
             let myPiece = myPieces[indexPath.row]
             
-            requestParam["action"] = "getCoverImg"
+            requestParam["action"] = "getAfterImg"
             requestParam["id"] = myPiece.id
             requestParam["imageSize"] = cell.frame.width
             var myPieceImg: UIImage?

@@ -36,7 +36,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         
         let width = (collectionView.bounds.width - 12) / 2
         let layout = collectionViewLayout as? UICollectionViewFlowLayout
-        layout?.itemSize = CGSize(width: width - 10, height: width + 5)
+        layout?.itemSize = CGSize(width: width - 10, height: width + 15)
         layout?.estimatedItemSize = .zero
         collectionView.addSubview(refresh)
         
@@ -64,7 +64,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         } else {
             // 搜尋原始資料內有無包含關鍵字(不區別大小寫)
             searchParties = partyLists.filter({ (partyList) -> Bool in
-                return partyList.name.uppercased().contains(text.uppercased())
+                return partyList.location.uppercased().contains(text.uppercased())
             })
             search = true
         }
