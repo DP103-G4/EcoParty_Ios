@@ -10,7 +10,7 @@ import UIKit
 
 class UserTableViewController: UITableViewController {
     let notUserArrays = ["登入/註冊"]
-    let userArrays = ["嗨", "編輯會員資料", "修改密碼", "我的活動", "登出"]
+    let userArrays = ["嗨,\t2020", "編輯會員資料", "修改密碼", "我的活動", "登出"]
     var userId: Int?
     
     

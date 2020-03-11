@@ -38,7 +38,7 @@ class NewsViewController: UIViewController, UIScrollViewDelegate, UITableViewDel
         var requestParam = [String: Any]()
         requestParam["action"] = "getImage"
         requestParam["id"] = news?.id
-        requestParam["imageSize"] = view.frame.width
+        requestParam["imageSize"] = view.frame.width * 2
         
         var image: UIImage?
         if let url = url_server {

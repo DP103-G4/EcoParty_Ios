@@ -73,7 +73,7 @@ class MyPartyTableViewController: UITableViewController {
             
             requestParam["action"] = "getCoverImg"
             requestParam["id"] = myParty.id
-            requestParam["imageSize"] = cell.frame.width
+            requestParam["imageSize"] = cell.frame.width * 2
             var myPartyImg: UIImage?
             if let url = url_server {
                 executeTask(url, requestParam) { (data, response, error) in
@@ -97,7 +97,7 @@ class MyPartyTableViewController: UITableViewController {
             
             requestParam["action"] = "getAfterImg"
             requestParam["id"] = myPiece.id
-            requestParam["imageSize"] = cell.frame.width
+            requestParam["imageSize"] = cell.frame.width * 2
             var myPieceImg: UIImage?
             if let url = url_server {
                 executeTask(url, requestParam) { (data, response, error) in

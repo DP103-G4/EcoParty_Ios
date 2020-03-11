@@ -75,7 +75,7 @@ class PieceCollectionViewController: UICollectionViewController {
         requestParam["id"] = party.id
         
         //    圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
-        requestParam["imageSize"] = cell.frame.width
+        requestParam["imageSize"] = cell.frame.width * 2
         var image: UIImage?
         
         if let url = url_server {
