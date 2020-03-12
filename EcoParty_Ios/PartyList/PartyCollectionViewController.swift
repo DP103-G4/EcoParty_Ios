@@ -116,7 +116,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PartyCollectionViewCell
         requestParam["action"] = "getCoverImg"
         requestParam["id"] = partyList.id
-        requestParam["imageSize"] = cell.frame.width * 2
+        requestParam["imageSize"] = cell.frame.width * 1.5
         var partyImg: UIImage?
         if let url = url_server {
             executeTask(url, requestParam) { (data, response, error) in
@@ -140,7 +140,7 @@ class PartyCollectionViewController: UICollectionViewController, UISearchBarDele
         let userUrl = URL(string: common_url + "UserServlet")
         requestParam["action"] = "getImage"
         requestParam["id"] = partyList.ownerId
-        requestParam["imageSize"] = cell.frame.width * 2
+        requestParam["imageSize"] = cell.frame.width / 20
         var ownerImg: UIImage?
         if let userUrl = userUrl {
             executeTask(userUrl, requestParam) { (data, response, error) in
