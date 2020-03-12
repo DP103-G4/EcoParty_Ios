@@ -46,7 +46,7 @@ class PartyCollectionReusableView: UICollectionReusableView, UICollectionViewDat
             let newsImage = news[indexPath.item]
             requestParam["action"] = "getImage"
             requestParam["id"] = newsImage.id
-            requestParam["imageSize"] = cell.frame.width
+            requestParam["imageSize"] = cell.frame.width * 2
             var newsImg: UIImage?
             if let url = newsUrl {
                 executeTask(url, requestParam) { (data, response, error) in
